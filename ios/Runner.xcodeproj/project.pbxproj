@@ -66,7 +66,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		84E14B2D2FC84AF2006920F7 /* 相盼UITests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "相盼UITests"; sourceTree = "<group>"; };
 		84E14B3D2FC84B38006920F7 /* RunnerTests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = RunnerTests; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
@@ -135,7 +134,6 @@
 			children = (
 				9740EEB11CF90186004384FC /* Flutter */,
 				97C146F01CF9000F007C117D /* Runner */,
-				84E14B2D2FC84AF2006920F7 /* 相盼UITests */,
 				84E14B3D2FC84B38006920F7 /* RunnerTests */,
 				97C146EF1CF9000F007C117D /* Products */,
 				331C8082294A63A400263BE5 /* RunnerTests */,
