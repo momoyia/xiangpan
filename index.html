@@ -1,0 +1,1066 @@
+{\rtf1\ansi\ansicpg936\cocoartf2868
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 <!DOCTYPE html>\
+<html lang="zh-CN">\
+<head>\
+    <meta charset="UTF-8">\
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">\
+    <title>\uc0\u26143 \u21465  - \u20581 \u36523 \u38203 \u28860 \u20998 \u20139  App \u21407 \u22411 </title>\
+    <!-- Tailwind CSS CDN -->\
+    <script src="https://cdn.tailwindcss.com"></script>\
+    <script>\
+        tailwind.config = \{\
+            theme: \{\
+                extend: \{\
+                    colors: \{\
+                        brand: \{\
+                            start: '#8A31EB',\
+                            end: '#FA84D2',\
+                        \}\
+                    \},\
+                    borderRadius: \{\
+                        '4xl': '2rem',\
+                    \}\
+                \}\
+            \}\
+        \}\
+    </script>\
+    <!-- Font Awesome Icons -->\
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">\
+    <!-- Google Fonts -->\
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">\
+    <style>\
+        body \{\
+            font-family: 'Plus Jakarta Sans', 'Noto Sans SC', sans-serif;\
+            background-color: #f8fafc;\
+        \}\
+        /* \uc0\u38544 \u34255 \u28378 \u21160 \u26465 \u20294 \u20445 \u30041 \u28378 \u21160 \u21151 \u33021  */\
+        .no-scrollbar::-webkit-scrollbar \{\
+            display: none;\
+        \}\
+        .no-scrollbar \{\
+            -ms-overflow-style: none;\
+            scrollbar-width: none;\
+        \}\
+        /* \uc0\u20027 \u39064 \u28176 \u21464 \u25991 \u23383  */\
+        .text-gradient \{\
+            background: linear-gradient(135deg, #8A31EB 0%, #FA84D2 100%);\
+            -webkit-background-clip: text;\
+            -webkit-text-fill-color: transparent;\
+        \}\
+        /* \uc0\u20027 \u39064 \u28176 \u21464 \u32972 \u26223  */\
+        .bg-gradient-brand \{\
+            background: linear-gradient(135deg, #8A31EB 0%, #FA84D2 100%);\
+        \}\
+        /* \uc0\u31934 \u32454 \u38452 \u24433  */\
+        .soft-shadow \{\
+            box-shadow: 0 10px 30px -10px rgba(138, 49, 235, 0.12);\
+        \}\
+        .card-shadow \{\
+            box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.05);\
+        \}\
+        /* \uc0\u21628 \u21560 \u25928 \u26524  */\
+        @keyframes breath \{\
+            0%, 100% \{ transform: scale(1); opacity: 0.9; \}\
+            50% \{ transform: scale(1.05); opacity: 1; \}\
+        \}\
+        .animate-breath \{\
+            animation: breath 3s infinite ease-in-out;\
+        \}\
+    </style>\
+</head>\
+<body class="flex flex-col lg:flex-row min-h-screen justify-center items-stretch overflow-x-hidden">\
+\
+    <!-- \uc0\u24038 \u20391 \u65306 \u20135 \u21697 \u35774 \u35745 \u25991 \u26723 \u21306  (PRD & UI Specification) -->\
+    <div class="w-full lg:w-[40%] bg-white p-6 lg:p-10 border-r border-slate-100 flex flex-col justify-between overflow-y-auto no-scrollbar">\
+        <div>\
+            <!-- \uc0\u21697 \u29260 \u26631 \u35782  -->\
+            <div class="flex items-center gap-3 mb-8">\
+                <div class="w-10 h-10 rounded-xl bg-gradient-brand flex items-center justify-center text-white shadow-md">\
+                    <i class="fa-solid fa-feather-pointed text-lg"></i>\
+                </div>\
+                <div>\
+                    <h1 class="text-2xl font-bold text-slate-800 tracking-wide">\uc0\u26143 \u21465  <span class="text-sm font-normal text-slate-400">XingXu</span></h1>\
+                    <p class="text-xs text-gradient font-medium">\uc0\u26143 \u20809 \u25351 \u24341 \u65292 \u21465 \u35828 \u26356 \u22909 \u30340 \u33258 \u24049  \'95 \u26497 \u33268 \u36816 \u21160 \u32654 \u23398 </p>\
+                </div>\
+            </div>\
+\
+            <!-- \uc0\u23548 \u33322 \u26631 \u31614  -->\
+            <div class="mb-6 border-b border-slate-100 flex gap-4 text-sm">\
+                <button onclick="switchDocTab('prd')" id="btn-doc-prd" class="pb-3 text-slate-400 hover:text-slate-600 font-medium">1. \uc0\u29992 \u25143 \u20307 \u39564 \u19982 \u21151 \u33021 \u35268 \u21010 </button>\
+                <button onclick="switchDocTab('ui')" id="btn-doc-ui" class="pb-3 text-slate-800 border-b-2 border-brand-start font-semibold">2. \uc0\u35270 \u35273 \u35268 \u33539 \u35828 \u26126 </button>\
+            </div>\
+\
+            <!-- \uc0\u25991 \u26723 \u20869 \u23481 \u65306 \u20135 \u21697 \u35268 \u26684  -->\
+            <div id="doc-prd" class="hidden space-y-6 text-slate-600 leading-relaxed text-sm">\
+                <section>\
+                    <h2 class="text-base font-bold text-slate-800 mb-2 flex items-center gap-2">\
+                        <span class="w-1.5 h-4 bg-gradient-brand rounded-full"></span>\
+                        \uc0\u26143 \u21465  App \u26680 \u24515 \u23450 \u20301 \
+                    </h2>\
+                    <p class="text-slate-500">\'93\uc0\u26143 \u21465 \'94\u26159 \u19968 \u27454 \u20513 \u23548 <b>\'93\u36731 \u37327 \u31038 \u20132 \u12289 \u26497 \u33268 \u35270 \u35273 \u12289 \u31185 \u23398 \u20581 \u36523 \'94</b>\u30340 \u39640 \u21697 \u36136 \u36816 \u21160 \u32654 \u23398 \u20998 \u20139 \u24179 \u21488 \u12290 \u25105 \u20204 \u26088 \u22312 \u25171 \u30772 \u20256 \u32479 \u20581 \u36523 \u24212 \u29992 \u26543 \u29157 \u30340 \u25968 \u25454 \u32599 \u21015 \u21644 \u20912 \u20919 \u30340 \u26426 \u26800 \u35757 \u32451 \u65292 \u23558 \'93\u27599 \u19968 \u27425 \u27969 \u27735 \'94\u21319 \u21326 \u20026 \u26497 \u20855 \u29983 \u27963 \u20202 \u24335 \u24863 \u30340 \u33258 \u25105 \u21457 \u29616 \u36807 \u31243 \u12290 </p>\
+                </section>\
+\
+                <section>\
+                    <h2 class="text-base font-bold text-slate-800 mb-2 flex items-center gap-2">\
+                        <span class="w-1.5 h-4 bg-gradient-brand rounded-full"></span>\
+                        \uc0\u29420 \u29305 \u20132 \u20114 \u36335 \u24452  (Unique Interactions)\
+                    </h2>\
+                    <ul class="list-disc list-inside space-y-2 text-slate-500">\
+                        <li><strong class="text-slate-700">\'93\uc0\u24515 \u21160 \u21345 \u29255 \'94\u24748 \u20572 \u36335 \u24452 \u65306 </strong> \u22312 \'93\u21457 \u29616  - \u36816 \u21160 \u39033 \u30446 \'94\u26495 \u22359 \u20013 \u65292 \u25682 \u24323 \u32321 \u26434 \u30340 \u22810 \u32423 \u36339 \u36716 \u65292 \u37319 \u29992 \u32437 \u21521 \'93\u24494 \u37325 \u21147 \u20542 \u26012 \'94\u24040 \u24133 \u21345 \u29255 \u12290 \u21452 \u20987 \u21345 \u29255 \u21487 \u30452 \u25509 \u21551 \u21160 \u24555 \u32451 \u65292 \u21491 \u28369 \u24555 \u36895 \u26631 \u35760 \u20170 \u26085 \u30446 \u26631 \u12290 </li>\
+                        <li><strong class="text-slate-700">\'93\uc0\u28789 \u24863 \u38378 \u24565 \'94\u19968 \u38190 \u21516 \u27454 \u65306 </strong> \u22312 \'93\u31038 \u21306 \u20998 \u20139 \'94\u20013 \u65292 \u33509 \u30475 \u20013 \u21457 \u24067 \u32773 \u30340 \u36816 \u21160 \u36712 \u36857 \u12289 \u37197 \u39184 \u25110 \u32972 \u26223 \u20048 \u65292 \u21487 \u28857 \u20987 \u19968 \u38190 \'93Pick\'94\u65292 \u30452 \u25509 \u29983 \u25104 \u21516 \u27454 \u36319 \u32451 \u35745 \u21010 \u12290 </li>\
+                        <li><strong class="text-slate-700">\'93\uc0\u26143 \u21451 \u30456 \u36898 \'94\u39278 \u39135 \u20132 \u20114 \u65306 </strong> \u29420 \u21019 \u39278 \u39135 \u36712 \u36947 \u19982 \u36816 \u21160 \u21345 \u36335 \u37324 \u32852 \u21160 \u27169 \u22411 \u65292 \u28369 \u21160 \'93\u25105 \u30340 \'94\u39029 \u38754 \u30340 \u21345 \u36335 \u37324 \u26465 \u65292 \u21487 \u33258 \u21160 \u25512 \u33616 \u23545 \u24212 \u30340 \u20302 \u21345 \u26143 \u21465 \u39184 \u21333 \u12290 </li>\
+                    </ul>\
+                </section>\
+\
+                <section>\
+                    <h2 class="text-base font-bold text-slate-800 mb-2 flex items-center gap-2">\
+                        <span class="w-1.5 h-4 bg-gradient-brand rounded-full"></span>\
+                        \uc0\u22235 \u22823 \u26680 \u24515 \u39029 \u38754 \u21151 \u33021 \u23450 \u20041 \
+                    </h2>\
+                    <div class="space-y-3">\
+                        <div class="p-3 bg-slate-50 rounded-lg">\
+                            <span class="font-bold text-slate-800 text-xs block mb-1">P1. \uc0\u39318 \u39029  (Home) - \u28789 \u24863 \u28689 \u24067 \u27969 </span>\
+                            <span class="text-xs text-slate-500">\uc0\u31934 \u24515 \u38613 \u29730 \u38750 \u23545 \u31216 \u28689 \u24067 \u27969 \u12290 \u27599 \u19968 \u24352 \u21345 \u29255 \u34701 \u21512 \u20102 \u36816 \u21160 \u29366 \u24577 \u12289 \u25945 \u32451 \u25512 \u33616 \u21644 \u26102 \u38388 \u26631 \u31614 \u12290 \u36731 \u20987 \u21363 \u21487 \u39044 \u35272 \u21160 \u20316 \u65292 \u38271 \u25353 \u21487 \u22312 \u38145 \u23631 \u19978 \u29983 \u25104 \u24494 \u22411 \u25171 \u21345 \u25346 \u20214 \u12290 </span>\
+                        </div>\
+                        <div class="p-3 bg-slate-50 rounded-lg">\
+                            <span class="font-bold text-slate-800 text-xs block mb-1">P2. \uc0\u21457 \u29616  (Discover) - \u27785 \u28024 \u24335 \u19987 \u39033 \u35757 \u32451 </span>\
+                            <span class="text-xs text-slate-500">\uc0\u25552 \u20379 \u22235 \u22823 \u29579 \u29260 \u22330 \u26223 \u65288 \u25143 \u22806 \u34892 \u36208 \u12289 \u36339 \u32499 \u12289 \u23460 \u20869 \u39569 \u34892 \u12289 \u25143 \u22806 \u39569 \u34892 \u65289 \u12290 \u21333 \u39029 \u37319 \u29992 3D\u36718 \u25773 \u21345 \u29255 \u65292 \u22823 \u23383 \u21495 \u25490 \u29256 \u19982 \u31934 \u36873 \u21160 \u24863 \u32972 \u26223 \u34701 \u20026 \u19968 \u20307 \u65292 \u28608 \u21457 \u36816 \u21160 \u32958 \u19978 \u33146 \u32032 \u12290 </span>\
+                        </div>\
+                        <div class="p-3 bg-slate-50 rounded-lg">\
+                            <span class="font-bold text-slate-800 text-xs block mb-1">P3. \uc0\u20998 \u20139  (Share) - \u21628 \u21560 \u24863 \u31934 \u36873 \u27969 </span>\
+                            <span class="text-xs text-slate-500">\uc0\u31867  Instagram \u28689 \u24067 \u24335 \u23485 \u23631 \u21345 \u29255 \u12290 \u24378 \u21270 \u21457 \u24067 \u32773 \u20010 \u20154 IP\u65292 \u31361 \u20986 \u32431 \u31929 \u30340 \u25668 \u24433 \u24863 \u12290 \u26631 \u31614 \u37319 \u29992 \u33707 \u20848 \u36842 \u24494 \u36879 \u28176 \u21464 \u65292 \u35780 \u35770 \u19982 \u25910 \u34255 \u21160 \u25928 \u20248 \u38597 \u32454 \u33147 \u12290 </span>\
+                        </div>\
+                        <div class="p-3 bg-slate-50 rounded-lg">\
+                            <span class="font-bold text-slate-800 text-xs block mb-1">P4. \uc0\u25105 \u30340  (Me) - \u25968 \u25454 \u26143 \u31354 \u33329 </span>\
+                            <span class="text-xs text-slate-500">\'93\uc0\u27426 \u20048 \u30340 \u30058 \u33540 \'94\u19987 \u23646 \u26143 \u20809 \u33457 \u22253 \u12290 \u38500 \u20102 \u22522 \u26412 \u32479 \u35745 \u22806 \u65292 \u36824 \u38598 \u25104 \u20102 \'93\u25105 \u30340 \u39278 \u39135 \'94\u12289 \'93\u36816 \u21160 \u26102 \u31354 \u33329 \'94\u31561 \u25968 \u25454 \u38754 \u26495 \u12290 \u29992 \u25143 \u21487 \u20197 \u36731 \u28857 \u32534 \u36753 \u65292 \u19968 \u38190 \u28949 \u26032 \u20010 \u20154 \u21517 \u29255 \u12290 </span>\
+                        </div>\
+                    </div>\
+                </section>\
+            </div>\
+\
+            <!-- \uc0\u25991 \u26723 \u20869 \u23481 \u65306 UI \u35268 \u33539  -->\
+            <div id="doc-ui" class="space-y-6 text-slate-600 leading-relaxed text-sm">\
+                <section>\
+                    <h2 class="text-base font-bold text-slate-800 mb-2 flex items-center gap-2">\
+                        <span class="w-1.5 h-4 bg-gradient-brand rounded-full"></span>\
+                        1. \uc0\u21697 \u29260 \u35774 \u35745 \u35821 \u35328 \u19982 \u35843 \u24615 \
+                    </h2>\
+                    <p class="text-slate-500 text-xs">\
+                        \'93\uc0\u26143 \u21465 \'94\u30340 UI\u35774 \u35745 \u31177 \u25345 <b>\'93\u31185 \u25216 \u28201 \u24773 \u12289 \u20248 \u38597 \u20811 \u21046 \u12289 \u36731 \u30408 \u21628 \u21560 \'94</b>\u30340 \u24403 \u20195 \u32654 \u23398 \u12290 \u36890 \u36807 \u23558 \u26580 \u21644 \u28201 \u26262 \u30340 \u24494 \u24369 \u38452 \u24433 \u19982 \u24378 \u23545 \u27604 \u30340 \u39640 \u39281 \u21644 \u21697 \u29260 \u33394 \u23436 \u32654 \u32467 \u21512 \u65292 \u26082 \u21019 \u36896 \u20986 \u26497 \u24378 \u30340 \u25968 \u23383 \u21270 \u21697 \u36136 \u24863 \u65292 \u21448 \u20445 \u30041 \u20102 \u36148 \u36817 \u29983 \u27963 \u12289 \u40723 \u21169 \u38506 \u20276 \u30340 \u24773 \u24863 \u33394 \u35843 \u12290 \
+                    </p>\
+                </section>\
+\
+                <section>\
+                    <h2 class="text-base font-bold text-slate-800 mb-2 flex items-center gap-2">\
+                        <span class="w-1.5 h-4 bg-gradient-brand rounded-full"></span>\
+                        2. \uc0\u26680 \u24515 \u33394 \u24425 \u30697 \u38453  (Colors)\
+                    </h2>\
+                    <div class="grid grid-cols-2 gap-3 text-xs mb-3">\
+                        <div class="p-3 rounded-lg text-white font-medium bg-[#8A31EB] shadow-sm flex flex-col justify-between">\
+                            <span class="font-bold">\uc0\u20027 \u21697 \u29260 \u33394  (\u20248 \u38597 \u32043 )</span>\
+                            <span class="mt-2 text-[10px] opacity-90">#8A31EB</span>\
+                        </div>\
+                        <div class="p-3 rounded-lg text-white font-medium bg-[#FA84D2] shadow-sm flex flex-col justify-between">\
+                            <span class="font-bold">\uc0\u36741 \u21697 \u29260 \u33394  (\u27185 \u33457 \u31881 )</span>\
+                            <span class="mt-2 text-[10px] opacity-90">#FA84D2</span>\
+                        </div>\
+                    </div>\
+                    <div class="grid grid-cols-3 gap-2 text-[10px]">\
+                        <div class="p-2 rounded bg-white border border-slate-100 flex flex-col">\
+                            <span class="text-slate-800 font-bold">\uc0\u20027 \u32972 \u26223 \u30333 </span>\
+                            <span class="text-slate-400">#FFFFFF</span>\
+                        </div>\
+                        <div class="p-2 rounded bg-slate-50 border border-slate-100 flex flex-col">\
+                            <span class="text-slate-800 font-bold">\uc0\u27425 \u32972 \u26223 \u28784 </span>\
+                            <span class="text-slate-400">#F8FAFC</span>\
+                        </div>\
+                        <div class="p-2 rounded bg-slate-900 text-white flex flex-col">\
+                            <span class="font-bold">\uc0\u39640 \u20142 \u25991 \u26412 /\u26263 \u33394 </span>\
+                            <span class="text-slate-400">#0F172A</span>\
+                        </div>\
+                    </div>\
+                </section>\
+\
+                <section>\
+                    <h2 class="text-base font-bold text-slate-800 mb-2 flex items-center gap-2">\
+                        <span class="w-1.5 h-4 bg-gradient-brand rounded-full"></span>\
+                        3. \uc0\u23383 \u38454 \u19982 \u25490 \u29256 \u20307 \u31995  (Typography)\
+                    </h2>\
+                    <div class="border border-slate-100 rounded-xl overflow-hidden text-xs">\
+                        <div class="grid grid-cols-3 bg-slate-50 p-2.5 font-bold text-slate-700">\
+                            <span>\uc0\u20351 \u29992 \u22330 \u26223 </span>\
+                            <span>\uc0\u23383 \u21495  (Size)</span>\
+                            <span>\uc0\u23383 \u37325  (Weight)</span>\
+                        </div>\
+                        <div class="grid grid-cols-3 p-2.5 border-b border-slate-50">\
+                            <span class="text-slate-800 font-medium">\uc0\u22823 \u26631 \u39064  / \u38203 \u28860 \u22823 \u21345 </span>\
+                            <span class="font-mono">24px</span>\
+                            <span>Bold (700/900)</span>\
+                        </div>\
+                        <div class="grid grid-cols-3 p-2.5 border-b border-slate-50">\
+                            <span class="text-slate-800 font-medium">\uc0\u20013 \u26631 \u39064  / \u39029 \u38754 \u22836 \u37096 </span>\
+                            <span class="font-mono">20px</span>\
+                            <span>SemiBold (600)</span>\
+                        </div>\
+                        <div class="grid grid-cols-3 p-2.5 border-b border-slate-50">\
+                            <span class="text-slate-800 font-medium">\uc0\u27491 \u25991  / \u21345 \u29255 \u25991 \u26696 </span>\
+                            <span class="font-mono">13-14px</span>\
+                            <span>Regular/Medium</span>\
+                        </div>\
+                        <div class="grid grid-cols-3 p-2.5">\
+                            <span class="text-slate-400 font-medium">\uc0\u36741 \u21161 \u23383  / \u25968 \u25454 \u21333 \u20301 </span>\
+                            <span class="font-mono text-slate-400">9-11px</span>\
+                            <span class="text-slate-400">Light (300)</span>\
+                        </div>\
+                    </div>\
+                </section>\
+\
+                <section>\
+                    <h2 class="text-base font-bold text-slate-800 mb-2 flex items-center gap-2">\
+                        <span class="w-1.5 h-4 bg-gradient-brand rounded-full"></span>\
+                        4. \uc0\u32452 \u20214 \u31354 \u38388 \u19982 \u38452 \u24433 \u23450 \u20041  (Layout & Depth)\
+                    </h2>\
+                    <ul class="list-disc list-inside space-y-1.5 text-slate-500 text-xs">\
+                        <li><strong>\uc0\u22278 \u35282 \u38454 \u26799 \u35268 \u21017  (Border Radius)\u65306 </strong>\
+                            <br>&bull; \uc0\u24040 \u24133 \u28966 \u28857 \u22823 \u21345 \u29255 \u65306 <code>24px (rounded-3xl)</code>\u65292 \u20984 \u26174 \u21253 \u35065 \u23433 \u20840 \u24863 \u12290 \
+                            <br>&bull; \uc0\u28689 \u24067 \u27969 \u19982 \u26222 \u36890 Feed\u27969 \u21345 \u29255 \u65306 <code>16px (rounded-2xl)</code>\u65292 \u20445 \u35777 \u31934 \u33268 \u24230 \u12290 \
+                            <br>&bull; \uc0\u23567 \u24509 \u31456 \u19982 \u22836 \u20687 \u26694 \u65306 <code>12px / 8px (rounded-xl)</code>\u12290 \
+                        </li>\
+                        <li><strong>\uc0\u26497 \u33268 \u38452 \u24433 \u29289 \u29702 \u21442 \u25968  (Card-Shadow)\u65306 </strong>\
+                            <br>\uc0\u37319 \u29992  <code>box-shadow: 0 15px 35px -5px rgba(0,0,0,0.05)</code>\u12290 \u21033 \u29992 \u20302 Alpha\u20540 \u30340 \u29615 \u22659 \u20809 \u38452 \u24433 \u65292 \u27169 \u25311 \u32440 \u24352 \u24494 \u24748 \u28014 \u24863 \u65292 \u26367 \u20195 \u20256 \u32479 \u30828 \u25551 \u36793 \u12290 \
+                        </li>\
+                        <li><strong>\uc0\u30041 \u30333 \u35268 \u33539  (Margins & Paddings)\u65306 </strong>\
+                            <br>\uc0\u23631 \u24149 \u24038 \u21491 \u20840 \u23616 \u22806 \u36793 \u36317 (Safe Area Margin)\u32479 \u19968 \u20026  <code>20px (px-5)</code>\u12290 \u21345 \u29255 \u20869 \u36793 \u36317 \u32479 \u19968 \u20026  <code>16px (p-4)</code>\u12290 \
+                        </li>\
+                    </ul>\
+                </section>\
+\
+                <section>\
+                    <h2 class="text-base font-bold text-slate-800 mb-2 flex items-center gap-2">\
+                        <span class="w-1.5 h-4 bg-gradient-brand rounded-full"></span>\
+                        5. \uc0\u20132 \u20114 \u24494 \u21160 \u25928 \u35774 \u35745 \u21442 \u25968 \
+                    </h2>\
+                    <p class="text-slate-500 text-xs mb-2">\
+                        \uc0\u20026 \u20102 \u28040 \u38500 \u26426 \u26800 \u29983 \u30828 \u24863 \u65292 \u26143 \u21465 \u20840 \u38754 \u24341 \u20837 \u20102 \u24102 \u26377 \u33258 \u28982 \u38459 \u23612 \u30340  iOS \u24377 \u31783 \u21160 \u25928 \u35268 \u33539 \u12290 \
+                    </p>\
+                    <div class="p-3 bg-slate-50 rounded-xl space-y-2 text-[11px]">\
+                        <div class="flex justify-between">\
+                            <span class="font-semibold text-slate-700">\uc0\u39029 \u38754 \u36716 \u22330  / Tab \u20999 \u25442 \u65306 </span>\
+                            <span class="text-slate-500">Ease-in-out, 300ms</span>\
+                        </div>\
+                        <div class="flex justify-between">\
+                            <span class="font-semibold text-slate-700">\uc0\u25353 \u38062 \u32553 \u25918 \u21453 \u39304  (Active)\u65306 </span>\
+                            <span class="text-slate-500">scale: 0.96 (Spring Elastic)</span>\
+                        </div>\
+                        <div class="flex justify-between">\
+                            <span class="font-semibold text-slate-700">\uc0\u28857 \u36190 /\u25910 \u34255 \u33192 \u32960 \u21453 \u39304 \u65306 </span>\
+                            <span class="text-slate-500">duration: 250ms, Cubic-bezier</span>\
+                        </div>\
+                    </div>\
+                </section>\
+\
+                <section>\
+                    <h2 class="text-base font-bold text-slate-800 mb-2 flex items-center gap-2">\
+                        <span class="w-1.5 h-4 bg-gradient-brand rounded-full"></span>\
+                        6. \uc0\u26234 \u33021 \u26080 \u38556 \u30861 \u35774 \u35745  (Accessibility/A11y)\
+                    </h2>\
+                    <ul class="list-disc list-inside space-y-1.5 text-slate-500 text-xs">\
+                        <li><strong>\uc0\u26368 \u23567 \u28857 \u20987 \u30446 \u26631 \u23610 \u23544 \u65306 </strong> \u20445 \u35777 \u25152 \u26377 \u26680 \u24515 \u35302 \u25511 \u23545 \u35937 \u65288 \u22914 \u24213 \u26639  Tab\u12289 \u21457 \u24067 \u21345 \u29255 \u25910 \u34255 \u22270 \u26631 \u65289 \u30340 \u23454 \u38469 \u28909 \u21306 \u22343 \u19981 \u20302 \u20110  <code>44 &times; 44 px</code>\u12290 </li>\
+                        <li><strong>\uc0\u33394 \u24425 \u39640 \u23545 \u27604 \u24230 \u65306 </strong> \u32431 \u30333 \u32972 \u26223 \u19979 \u30340 \u25991 \u23383 \u32479 \u19968 \u37319 \u29992  <code>#0F172A</code> \u25110  <code>#334155</code>\u65292 \u38750 \u26680 \u24515 \u25552 \u31034 \u25991 \u23383 \u23545 \u27604 \u24230 \u20063 \u28385 \u36275  WCAG AA \u32423 \u26631 \u20934 \u12290 </li>\
+                    </ul>\
+                </section>\
+            </div>\
+        </div>\
+\
+        <div class="mt-8 pt-6 border-t border-slate-100 flex items-center justify-between text-xs text-slate-400">\
+            <span>\uc0\u26143 \u21465  XingXu \u20132 \u20114 \u21407 \u22411 \u35774 \u35745 \u31995 \u32479  v1.0</span>\
+            <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>\uc0\u24320 \u21457 \u23601 \u32490 </span>\
+        </div>\
+    </div>\
+\
+    <!-- \uc0\u21491 \u20391 \u65306 iPhone 15 Pro \u39640 \u20445 \u30495 \u21407 \u22411 \u28436 \u31034 \u21306  -->\
+    <div class="flex-1 bg-slate-50 py-8 px-4 flex justify-center items-center overflow-y-auto">\
+        <!-- \uc0\u25163 \u26426 \u22806 \u22771  -->\
+        <div class="relative w-[393px] h-[852px] bg-black rounded-[55px] p-3.5 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.35)] border-4 border-[#2A2B2D] flex-shrink-0 transition-all duration-300">\
+            <!-- \uc0\u25163 \u26426 \u21548 \u31570 /\u28789 \u21160 \u23707  -->\
+            <div class="absolute top-5 left-1/2 -translate-x-1/2 w-[110px] h-[30px] bg-black rounded-3xl z-50 flex items-center justify-between px-3.5 text-[10px] text-white">\
+                <i class="fa-solid fa-bell text-[#FA84D2] text-[8px] animate-pulse"></i>\
+                <span class="font-bold tracking-wide">\uc0\u26143 \u21465 \u36816 \u21160 </span>\
+                <div class="w-2 h-2 bg-gradient-brand rounded-full"></div>\
+            </div>\
+\
+            <!-- \uc0\u25163 \u26426 \u20869 \u23631 \u23481 \u22120  (\u30333 \u33394 \u32972 \u26223 ) -->\
+            <div class="w-full h-full bg-white rounded-[40px] overflow-hidden relative flex flex-col justify-between select-none">\
+                \
+                <!-- 1. \uc0\u25163 \u26426 \u29366 \u24577 \u26639  -->\
+                <div class="h-10 px-6 pt-3 flex justify-between items-center text-[11px] font-bold text-slate-800 z-40 bg-white/80 backdrop-blur-md">\
+                    <span id="live-clock">18:27</span>\
+                    <div class="flex items-center gap-1.5">\
+                        <i class="fa-solid fa-signal text-[10px]"></i>\
+                        <span class="text-[9px]">5G</span>\
+                        <i class="fa-solid fa-battery-three-quarters text-[11px] text-slate-700"></i>\
+                    </div>\
+                </div>\
+\
+                <!-- ================= \uc0\u39029 \u38754  1: \u39318 \u39029  (\u28789 \u24863 \u28689 \u24067 \u27969 ) ================= -->\
+                <div id="page-home" class="hidden flex-1 overflow-y-auto no-scrollbar px-5 pb-20 pt-1">\
+                    <!-- \uc0\u39030 \u23548  -->\
+                    <div class="flex justify-between items-center py-3 mb-4">\
+                        <div>\
+                            <p class="text-xs text-slate-400 font-medium">Hello, \uc0\u27426 \u36814 \u22238 \u26469 </p>\
+                            <h2 class="text-xl font-bold text-slate-800 flex items-center gap-1">\
+                                \uc0\u20170 \u26085 \u28789 \u24863 \u35745 \u21010  <i class="fa-solid fa-bolt-lightning text-amber-400 text-sm"></i>\
+                            </h2>\
+                        </div>\
+                        <button class="w-9 h-9 rounded-full bg-slate-50 flex items-center justify-center text-slate-600 hover:bg-slate-100 transition-all">\
+                            <i class="fa-regular fa-calendar-check text-base text-gradient"></i>\
+                        </button>\
+                    </div>\
+\
+                    <!-- \uc0\u25628 \u32034  & \u24555 \u36895 \u36807 \u28388  -->\
+                    <div class="relative mb-5">\
+                        <input type="text" placeholder="\uc0\u25628 \u32034 \u38203 \u28860 \u12289 \u25945 \u32451 \u12289 \u33203 \u39135 \u37197 \u26041 ..." class="w-full bg-slate-50 text-slate-700 placeholder-slate-400 text-xs py-3 pl-10 pr-4 rounded-xl border border-transparent focus:border-brand-start focus:bg-white focus:outline-none transition-all">\
+                        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3.5 text-slate-400 text-xs"></i>\
+                    </div>\
+\
+                    <!-- \uc0\u28689 \u24067 \u27969 \u24067 \u23616  Grid -->\
+                    <div class="grid grid-cols-2 gap-4">\
+                        <!-- \uc0\u31532 \u19968 \u21015  -->\
+                        <div class="space-y-4">\
+                            <!-- \uc0\u35745 \u21010 1 -->\
+                            <div class="bg-white rounded-2xl overflow-hidden card-shadow border border-slate-100/50 hover:scale-[1.01] transition-transform duration-300">\
+                                <div class="relative h-44 overflow-hidden bg-slate-100">\
+                                    <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=600&auto=format&fit=crop" alt="\uc0\u33145 \u32908 \u21147 \u37327 \u35757 \u32451 " class="w-full h-full object-cover">\
+                                    <span class="absolute top-2.5 left-2.5 bg-black/40 backdrop-blur-md text-white text-[9px] px-2 py-0.5 rounded-full font-medium">15\uc0\u20998 \u38047 </span>\
+                                    <button onclick="toggleCardCollect(this)" class="absolute top-2.5 right-2.5 w-6 h-6 rounded-full bg-white/80 backdrop-blur-md flex items-center justify-center text-slate-400 hover:text-rose-500 transition-colors">\
+                                        <i class="fa-solid fa-heart text-[10px]"></i>\
+                                    </button>\
+                                </div>\
+                                <div class="p-3">\
+                                    <span class="text-[9px] bg-[#8A31EB]/10 text-[#8A31EB] font-bold px-1.5 py-0.5 rounded-md">\uc0\u33136 \u33145 \u26680 \u24515 </span>\
+                                    <h3 class="font-bold text-slate-800 text-xs mt-1.5 leading-snug">\uc0\u25749 \u35010 \u33145 \u32908 \u65306 \u20013 \u24378 \u24230 \u29123 \u33026 </h3>\
+                                    <p class="text-[9px] text-slate-400 mt-1 flex items-center gap-1">\
+                                        <i class="fa-solid fa-chart-simple text-[8px] text-brand-start"></i> \uc0\u36827 \u38454  \'95 140\u22823 \u21345 \
+                                    </p>\
+                                </div>\
+                            </div>\
+\
+                            <!-- \uc0\u35745 \u21010 2 -->\
+                            <div class="bg-white rounded-2xl overflow-hidden card-shadow border border-slate-100/50 hover:scale-[1.01] transition-transform duration-300">\
+                                <div class="relative h-36 overflow-hidden bg-slate-100">\
+                                    <img src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?q=80&w=600&auto=format&fit=crop" alt="\uc0\u22899 \u23376 \u26216 \u36305 " class="w-full h-full object-cover">\
+                                    <span class="absolute top-2.5 left-2.5 bg-black/40 backdrop-blur-md text-white text-[9px] px-2 py-0.5 rounded-full font-medium">30\uc0\u20998 \u38047 </span>\
+                                    <button onclick="toggleCardCollect(this)" class="absolute top-2.5 right-2.5 w-6 h-6 rounded-full bg-white/80 backdrop-blur-md flex items-center justify-center text-slate-400 hover:text-rose-500 transition-colors">\
+                                        <i class="fa-solid fa-heart text-[10px]"></i>\
+                                    </button>\
+                                </div>\
+                                <div class="p-3">\
+                                    <span class="text-[9px] bg-[#FA84D2]/10 text-[#FA84D2] font-bold px-1.5 py-0.5 rounded-md">\uc0\u26216 \u38388 \u21796 \u37266 </span>\
+                                    <h3 class="font-bold text-slate-800 text-xs mt-1.5 leading-snug">5KM \uc0\u26377 \u27687 \u20195 \u35874 \u24930 \u36305 </h3>\
+                                    <p class="text-[9px] text-slate-400 mt-1 flex items-center gap-1">\
+                                        <i class="fa-solid fa-chart-simple text-[8px] text-amber-500"></i> \uc0\u21021 \u23398 \u32773  \'95 320\u22823 \u21345 \
+                                    </p>\
+                                </div>\
+                            </div>\
+                        </div>\
+\
+                        <!-- \uc0\u31532 \u20108 \u21015  -->\
+                        <div class="space-y-4">\
+                            <!-- \uc0\u35745 \u21010 3 -->\
+                            <div class="bg-white rounded-2xl overflow-hidden card-shadow border border-slate-100/50 hover:scale-[1.01] transition-transform duration-300">\
+                                <div class="relative h-32 overflow-hidden bg-slate-100">\
+                                    <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=600&auto=format&fit=crop" alt="\uc0\u33298 \u32531 \u29788 \u20285 " class="w-full h-full object-cover">\
+                                    <span class="absolute top-2.5 left-2.5 bg-black/40 backdrop-blur-md text-white text-[9px] px-2 py-0.5 rounded-full font-medium">20\uc0\u20998 \u38047 </span>\
+                                    <button onclick="toggleCardCollect(this)" class="absolute top-2.5 right-2.5 w-6 h-6 rounded-full bg-white/80 backdrop-blur-md flex items-center justify-center text-slate-400 hover:text-rose-500 transition-colors">\
+                                        <i class="fa-solid fa-heart text-[10px]"></i>\
+                                    </button>\
+                                </div>\
+                                <div class="p-3">\
+                                    <span class="text-[9px] bg-[#8A31EB]/10 text-[#8A31EB] font-bold px-1.5 py-0.5 rounded-md">\uc0\u29788 \u20285 \u22609 \u24418 </span>\
+                                    <h3 class="font-bold text-slate-800 text-xs mt-1.5 leading-snug">\uc0\u27969 \u29788 \u20285 \u65306 \u32937 \u39048 \u28145 \u24230 \u25289 \u20280 </h3>\
+                                    <p class="text-[9px] text-slate-400 mt-1 flex items-center gap-1">\
+                                        <i class="fa-solid fa-chart-simple text-[8px] text-brand-start"></i> \uc0\u21021 \u23398 \u32773  \'95 90\u22823 \u21345 \
+                                    </p>\
+                                </div>\
+                            </div>\
+\
+                            <!-- \uc0\u35745 \u21010 4 -->\
+                            <div class="bg-white rounded-2xl overflow-hidden card-shadow border border-slate-100/50 hover:scale-[1.01] transition-transform duration-300">\
+                                <div class="relative h-48 overflow-hidden bg-slate-100">\
+                                    <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=600&auto=format&fit=crop" alt="\uc0\u30828 \u25289 \u21147 \u37327 " class="w-full h-full object-cover">\
+                                    <span class="absolute top-2.5 left-2.5 bg-black/40 backdrop-blur-md text-white text-[9px] px-2 py-0.5 rounded-full font-medium">45\uc0\u20998 \u38047 </span>\
+                                    <button onclick="toggleCardCollect(this)" class="absolute top-2.5 right-2.5 w-6 h-6 rounded-full bg-white/80 backdrop-blur-md flex items-center justify-center text-slate-400 hover:text-rose-500 transition-colors">\
+                                        <i class="fa-solid fa-heart text-[10px]"></i>\
+                                    </button>\
+                                </div>\
+                                <div class="p-3">\
+                                    <span class="text-[9px] bg-indigo-50 text-indigo-500 font-bold px-1.5 py-0.5 rounded-md">\uc0\u32908 \u32905 \u22609 \u36896 </span>\
+                                    <h3 class="font-bold text-slate-800 text-xs mt-1.5 leading-snug">\uc0\u20840 \u36523 \u24615 \u29190 \u21457 \u21147 \u39640 \u38454 \u35757 \u32451 </h3>\
+                                    <p class="text-[9px] text-slate-400 mt-1 flex items-center gap-1">\
+                                        <i class="fa-solid fa-chart-simple text-[8px] text-rose-500"></i> \uc0\u19987 \u19994  \'95 480\u22823 \u21345 \
+                                    </p>\
+                                </div>\
+                            </div>\
+                        </div>\
+                    </div>\
+                </div>\
+\
+\
+                <!-- ================= \uc0\u39029 \u38754  2: \u21457 \u29616  (\u19987 \u39033 \u35757 \u32451 \u24040 \u24133 \u21345 \u29255 ) ================= -->\
+                <div id="page-discover" class="hidden flex-1 overflow-y-auto no-scrollbar px-5 pb-20 pt-1">\
+                    <!-- \uc0\u39029 \u38754 \u26631 \u39064  -->\
+                    <div class="py-3 mb-2 flex items-center justify-between">\
+                        <div>\
+                            <h2 class="text-xl font-bold text-slate-800">\uc0\u19987 \u39033 \u38203 \u28860 </h2>\
+                            <p class="text-xs text-slate-400 font-medium">\uc0\u31934 \u36873 \u22810 \u32500 \u24230 \u31185 \u23398 \u31454 \u25216 \u22330 </p>\
+                        </div>\
+                        <span class="text-xs text-slate-400 hover:text-brand-start cursor-pointer transition-colors">\uc0\u33258 \u23450 \u36873 \u39033  <i class="fa-solid fa-chevron-right text-[9px]"></i></span>\
+                    </div>\
+\
+                    <!-- \uc0\u39030 \u37096 \u27178 \u21521 \u28369 \u21160 \u30340 \u23548 \u33322 \u26639  (\u22270 \u26631 +\u25991 \u23383 ) -->\
+                    <div class="flex items-center gap-3 overflow-x-auto no-scrollbar py-2 mb-4 scroll-smooth">\
+                        <button onclick="switchDiscoverTab('walk')" id="nav-walk" class="flex-shrink-0 flex items-center gap-2 px-3.5 py-2.5 rounded-xl bg-gradient-brand text-white shadow-md transition-all duration-300">\
+                            <i class="fa-solid fa-person-walking text-sm"></i>\
+                            <span class="text-[11px] font-bold tracking-wide">\uc0\u25143 \u22806 \u34892 \u36208 </span>\
+                        </button>\
+                        <button onclick="switchDiscoverTab('rope')" id="nav-rope" class="flex-shrink-0 flex items-center gap-2 px-3.5 py-2.5 rounded-xl bg-slate-50 text-slate-500 hover:bg-slate-100 transition-all duration-300">\
+                            <i class="fa-solid fa-person-skipping text-sm"></i>\
+                            <span class="text-[11px] font-semibold tracking-wide">\uc0\u36339 \u32499 </span>\
+                        </button>\
+                        <button onclick="switchDiscoverTab('indoor-ride')" id="nav-indoor-ride" class="flex-shrink-0 flex items-center gap-2 px-3.5 py-2.5 rounded-xl bg-slate-50 text-slate-500 hover:bg-slate-100 transition-all duration-300">\
+                            <i class="fa-solid fa-bicycle text-sm"></i>\
+                            <span class="text-[11px] font-semibold tracking-wide">\uc0\u23460 \u20869 \u39569 \u34892 </span>\
+                        </button>\
+                        <button onclick="switchDiscoverTab('outdoor-ride')" id="nav-outdoor-ride" class="flex-shrink-0 flex items-center gap-2 px-3.5 py-2.5 rounded-xl bg-slate-50 text-slate-500 hover:bg-slate-100 transition-all duration-300">\
+                            <i class="fa-solid fa-motorcycle text-sm"></i>\
+                            <span class="text-[11px] font-semibold tracking-wide">\uc0\u25143 \u22806 \u39569 \u34892 </span>\
+                        </button>\
+                    </div>\
+\
+                    <!-- \uc0\u20027 \u23637 \u31034 \u21306 \u65306 \u20013 \u38388 \u24040 \u24133 \u22823 \u21345 \u29255  -->\
+                    <div class="relative w-full h-[380px] rounded-3xl overflow-hidden card-shadow group mb-6">\
+                        <!-- \uc0\u22823 \u21345 \u29255 \u24213 \u22270  -->\
+                        <img id="discover-img" src="https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?q=80&w=800&auto=format&fit=crop" alt="\uc0\u25143 \u22806 \u34892 \u36208 " class="w-full h-full object-cover group-hover:scale-105 transition-all duration-700">\
+                        <!-- \uc0\u40657 \u33394 \u26580 \u21644 \u28176 \u21464 \u21322 \u36879 \u26126 \u36974 \u32617  -->\
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-between p-6">\
+                            \
+                            <!-- \uc0\u39030 \u37096 \u23567 \u24509 \u31456  -->\
+                            <div class="flex justify-between items-start">\
+                                <span class="bg-white/25 backdrop-blur-md text-white text-[10px] px-3 py-1 rounded-full font-semibold border border-white/20">\uc0\u20170 \u26085 \u24517 \u32451 </span>\
+                                <div class="w-8 h-8 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white cursor-pointer hover:bg-white/40 transition-colors">\
+                                    <i class="fa-solid fa-share-nodes text-xs"></i>\
+                                </div>\
+                            </div>\
+\
+                            <!-- \uc0\u19979 \u37096 \u26680 \u24515 \u20449 \u24687  -->\
+                            <div class="space-y-3 text-white">\
+                                <p class="text-xs text-brand-end font-bold tracking-widest uppercase">Special Field</p>\
+                                <h1 id="discover-title" class="text-2xl font-black tracking-wide leading-tight drop-shadow-md">\uc0\u26085 \u33853 \u29615 \u23665 \u28459 \u27493 \u35745 \u21010 </h1>\
+                                \
+                                <!-- \uc0\u21103 \u26631 \u39064 \u12289 \u29992 \u26102 \u12289 \u38590 \u24230 \u12289 \u21345 \u36335 \u37324  -->\
+                                <div class="flex items-center gap-3 bg-white/10 backdrop-blur-md p-3 rounded-2xl border border-white/10 text-xs">\
+                                    <div class="flex-1">\
+                                        <p class="text-[10px] text-slate-300">\uc0\u38590 \u24230 \u31561 \u32423 </p>\
+                                        <p id="discover-level" class="font-bold text-white text-xs mt-0.5">\uc0\u9733 \u9733 \u9734 \u9734 \u9734 </p>\
+                                    </div>\
+                                    <div class="w-px h-6 bg-white/20"></div>\
+                                    <div class="flex-1">\
+                                        <p class="text-[10px] text-slate-300">\uc0\u24314 \u35758 \u29992 \u26102 </p>\
+                                        <p id="discover-time" class="font-bold text-white text-xs mt-0.5">45 \uc0\u20998 \u38047 </p>\
+                                    </div>\
+                                    <div class="w-px h-6 bg-white/20"></div>\
+                                    <div class="flex-1">\
+                                        <p class="text-[10px] text-slate-300">\uc0\u39044 \u35745 \u28040 \u32791 </p>\
+                                        <p id="discover-calories" class="font-bold text-[#FA84D2] text-xs mt-0.5">280 Kcal</p>\
+                                    </div>\
+                                </div>\
+\
+                                <!-- \uc0\u20132 \u20114 \u65306 \u19968 \u38190 \u24320 \u22987  -->\
+                                <button class="w-full bg-gradient-brand py-3.5 rounded-2xl font-bold text-xs tracking-wider shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2">\
+                                    <i class="fa-solid fa-play text-[10px]"></i> \uc0\u31435 \u21363 \u36827 \u20837 \u35757 \u32451 \u26102 \u31354 \
+                                </button>\
+                            </div>\
+                        </div>\
+                    </div>\
+\
+                    <!-- \uc0\u36741 \u21161 \u23567 \u21345 \u65306 \u35757 \u32451 \u25104 \u23601 \u32479 \u35745  -->\
+                    <div class="bg-gradient-to-r from-[#8A31EB]/5 to-[#FA84D2]/5 border border-[#8A31EB]/10 rounded-2xl p-4 flex items-center justify-between">\
+                        <div class="flex items-center gap-3">\
+                            <div class="w-10 h-10 rounded-xl bg-[#8A31EB]/10 flex items-center justify-center text-gradient">\
+                                <i class="fa-solid fa-award text-lg"></i>\
+                            </div>\
+                            <div>\
+                                <h4 class="text-xs font-bold text-slate-800">\uc0\u21195 \u31456 \u25361 \u25112 \u65306 \u24466 \u27493 \u32773 \u20043 \u22659 </h4>\
+                                <p class="text-[10px] text-slate-500 mt-0.5">\uc0\u26412 \u21608 \u32047 \u31215 \u34892 \u36208 \u24050 \u36798  12 KM</p>\
+                            </div>\
+                        </div>\
+                        <span class="text-[11px] text-[#8A31EB] font-bold">\uc0\u21435 \u20817 \u25442 </span>\
+                    </div>\
+                </div>\
+\
+\
+                <!-- ================= \uc0\u39029 \u38754  3: \u20998 \u20139  (\u21345 \u29255  Feed \u27969  / \u31867  Ins) ================= -->\
+                <div id="page-share" class="hidden flex-1 overflow-y-auto no-scrollbar px-5 pb-20 pt-1">\
+                    <!-- \uc0\u39030 \u26639  -->\
+                    <div class="py-3 mb-2 flex items-center justify-between">\
+                        <div>\
+                            <h2 class="text-xl font-bold text-slate-800">\uc0\u21457 \u29616 \u26143 \u21451 </h2>\
+                            <p class="text-xs text-slate-400 font-medium">\uc0\u22312 \u27969 \u27735 \u20013 \u65292 \u36994 \u36869 \u24535 \u21516 \u36947 \u21512 \u30340 \u26143 \u21465 </p>\
+                        </div>\
+                        <!-- \uc0\u21491 \u19978 \u35282 \u21457 \u24067 \u22270 \u26631  -->\
+                        <button class="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-600 hover:bg-slate-100">\
+                            <i class="fa-solid fa-plus text-sm text-gradient"></i>\
+                        </button>\
+                    </div>\
+\
+                    <!-- \uc0\u20998 \u20139  Feed \u27969  -->\
+                    <div class="space-y-6">\
+                        <!-- Feed \uc0\u21345 \u29255  1 -->\
+                        <div class="bg-white rounded-2xl card-shadow border border-slate-100 overflow-hidden">\
+                            <!-- \uc0\u21457 \u24067 \u32773 \u22836 \u20687 \u12289 \u26165 \u31216  -->\
+                            <div class="flex items-center justify-between p-4">\
+                                <div class="flex items-center gap-2.5">\
+                                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop" alt="\uc0\u29992 \u25143 \u22836 \u20687 " class="w-9 h-9 rounded-full object-cover ring-2 ring-brand-start/20">\
+                                    <div>\
+                                        <h4 class="text-xs font-bold text-slate-800">\uc0\u27792 \u37326 _Jane</h4>\
+                                        <p class="text-[9px] text-slate-400">\uc0\u21271 \u20140  \'95 3\u23567 \u26102 \u21069 \u21457 \u24067 </p>\
+                                    </div>\
+                                </div>\
+                                <button class="text-[10px] font-bold text-[#8A31EB] bg-[#8A31EB]/10 px-3 py-1 rounded-full hover:bg-[#8A31EB]/20 transition-all">\uc0\u20851 \u27880 </button>\
+                            </div>\
+\
+                            <!-- \uc0\u36816 \u21160 \u22823 \u27178 \u22270  -->\
+                            <div class="h-56 relative bg-slate-100">\
+                                <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=800&auto=format&fit=crop" alt="\uc0\u31934 \u33268 \u29788 \u20285 \u26102 \u21051 " class="w-full h-full object-cover">\
+                                <div class="absolute bottom-3 left-3 bg-black/40 backdrop-blur-md text-white text-[9px] px-2.5 py-1 rounded-full flex items-center gap-1">\
+                                    <i class="fa-solid fa-location-dot text-brand-end"></i> \uc0\u27969 \u20809 \u29788 \u20285 \u39302 \
+                                </div>\
+                            </div>\
+\
+                            <!-- \uc0\u25991 \u26696 \u21306  -->\
+                            <div class="p-4">\
+                                <h3 class="font-bold text-slate-800 text-xs mb-1.5 leading-snug">\
+                                    \uc0\u20170 \u26085 \u26216 \u26342 \u27969 \u29788 \u20285 \u25171 \u21345 \u55358 \u56792 \u8205 \u9792 \u65039 \u65292 \u36523 \u20307 \u30340 \u27599 \u19968 \u27425 \u24310 \u23637 \u37117 \u22312 \u21644 \u26216 \u20809 \u25317 \u25265 \u65281 \
+                                </h3>\
+                                <div class="flex flex-wrap gap-1.5 mb-4">\
+                                    <span class="text-[9px] font-bold text-[#8A31EB] bg-[#8A31EB]/5 px-2 py-0.5 rounded-full">#\uc0\u26216 \u38388 \u20202 \u24335 \u24863 </span>\
+                                    <span class="text-[9px] font-bold text-[#FA84D2] bg-[#FA84D2]/5 px-2 py-0.5 rounded-full">#\uc0\u20170 \u26085 \u25289 \u20280 </span>\
+                                    <span class="text-[9px] font-bold text-indigo-500 bg-indigo-50 px-2 py-0.5 rounded-full">#\uc0\u29788 \u20285 \u22899 \u23401 </span>\
+                                </div>\
+\
+                                <!-- \uc0\u20114 \u21160 \u34892 \u65306 \u28857 \u36190 \u12289 \u35780 \u35770 \u12289 \u21487 \u25910 \u34255  -->\
+                                <div class="flex items-center justify-between pt-3 border-t border-slate-50 text-slate-500">\
+                                    <div class="flex items-center gap-4">\
+                                        <!-- \uc0\u28857 \u36190  -->\
+                                        <button onclick="toggleLike(this)" class="flex items-center gap-1.5 hover:text-rose-500 transition-colors">\
+                                            <i class="fa-regular fa-heart text-sm"></i>\
+                                            <span class="text-[11px] font-semibold">128</span>\
+                                        </button>\
+                                        <!-- \uc0\u35780 \u35770  -->\
+                                        <button class="flex items-center gap-1.5 hover:text-indigo-500 transition-colors">\
+                                            <i class="fa-regular fa-comment text-sm"></i>\
+                                            <span class="text-[11px] font-semibold">45</span>\
+                                        </button>\
+                                    </div>\
+                                    <!-- \uc0\u25910 \u34255  -->\
+                                    <button onclick="toggleCollect(this)" class="flex items-center gap-1 hover:text-amber-500 transition-colors">\
+                                        <i class="fa-regular fa-star text-sm"></i>\
+                                    </button>\
+                                </div>\
+                            </div>\
+                        </div>\
+\
+                        <!-- Feed \uc0\u21345 \u29255  2 -->\
+                        <div class="bg-white rounded-2xl card-shadow border border-slate-100 overflow-hidden">\
+                            <!-- \uc0\u21457 \u24067 \u32773 \u22836 \u20687 \u12289 \u26165 \u31216  -->\
+                            <div class="flex items-center justify-between p-4">\
+                                <div class="flex items-center gap-2.5">\
+                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop" alt="\uc0\u29992 \u25143 \u22836 \u20687 " class="w-9 h-9 rounded-full object-cover ring-2 ring-brand-start/20">\
+                                    <div>\
+                                        <h4 class="text-xs font-bold text-slate-800">\uc0\u23665 \u28023 \u34892 \u32773 _Eric</h4>\
+                                        <p class="text-[9px] text-slate-400">\uc0\u28145 \u22323  \'95 6\u23567 \u26102 \u21069 \u21457 \u24067 </p>\
+                                    </div>\
+                                </div>\
+                                <button class="text-[10px] font-bold text-[#8A31EB] bg-[#8A31EB]/10 px-3 py-1 rounded-full hover:bg-[#8A31EB]/20 transition-all">\uc0\u20851 \u27880 </button>\
+                            </div>\
+\
+                            <!-- \uc0\u36816 \u21160 \u22823 \u27178 \u22270  -->\
+                            <div class="h-56 relative bg-slate-100">\
+                                <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=800&auto=format&fit=crop" alt="\uc0\u21147 \u37327 \u35757 \u32451 " class="w-full h-full object-cover">\
+                                <div class="absolute bottom-3 left-3 bg-black/40 backdrop-blur-md text-white text-[9px] px-2.5 py-1 rounded-full flex items-center gap-1">\
+                                    <i class="fa-solid fa-location-dot text-brand-end"></i> \uc0\u40657 \u26332 \u30707 \u21147 \u37327 \u30697 \u38453 \
+                                </div>\
+                            </div>\
+\
+                            <!-- \uc0\u25991 \u26696 \u21306  -->\
+                            <div class="p-4">\
+                                <h3 class="font-bold text-slate-800 text-xs mb-1.5 leading-snug">\
+                                    \uc0\u32972 \u37096 \u36720 \u28856 \u26085 \u65281 \u20170 \u26085 \u30828 \u25289 \u30452 \u22868  120KG\u65292 \u25104 \u21151 \u31361 \u30772 \u24179 \u21488 \u26399 \u65281 \u29245 \u65281 \u55356 \u57291 \u65039 \u8205 \u9794 \u65039 \u55357 \u56485 \
+                                </h3>\
+                                <div class="flex flex-wrap gap-1.5 mb-4">\
+                                    <span class="text-[9px] font-bold text-[#8A31EB] bg-[#8A31EB]/5 px-2 py-0.5 rounded-full">#\uc0\u30828 \u25289 \u31361 \u30772 </span>\
+                                    <span class="text-[9px] font-bold text-indigo-500 bg-indigo-50 px-2 py-0.5 rounded-full">#\uc0\u21147 \u37327 \u35757 \u32451 </span>\
+                                </div>\
+\
+                                <!-- \uc0\u20114 \u21160 \u34892  -->\
+                                <div class="flex items-center justify-between pt-3 border-t border-slate-50 text-slate-500">\
+                                    <div class="flex items-center gap-4">\
+                                        <button onclick="toggleLike(this)" class="flex items-center gap-1.5 hover:text-rose-500 transition-colors">\
+                                            <i class="fa-regular fa-heart text-sm"></i>\
+                                            <span class="text-[11px] font-semibold">324</span>\
+                                        </button>\
+                                        <button class="flex items-center gap-1.5 hover:text-indigo-500 transition-colors">\
+                                            <i class="fa-regular fa-comment text-sm"></i>\
+                                            <span class="text-[11px] font-semibold">82</span>\
+                                        </button>\
+                                    </div>\
+                                    <button onclick="toggleCollect(this)" class="flex items-center gap-1 hover:text-amber-500 transition-colors">\
+                                        <i class="fa-regular fa-star text-sm"></i>\
+                                    </button>\
+                                </div>\
+                            </div>\
+                        </div>\
+                    </div>\
+                </div>\
+\
+\
+                <!-- ================= \uc0\u39029 \u38754  4: \u25105 \u30340  (\u25968 \u25454 \u26143 \u31354 \u33329 \u19982 \u36164 \u26009 ) ================= -->\
+                <div id="page-me" class="hidden flex-1 overflow-y-auto no-scrollbar px-5 pb-20 pt-1">\
+                    <!-- \uc0\u39030 \u26639 \u35774 \u32622  -->\
+                    <div class="py-3 flex justify-between items-center">\
+                        <span class="text-xs text-slate-400 font-bold tracking-widest">PERSONAL SPACE</span>\
+                        <button onclick="toggleSettingsModal(true)" class="w-8 h-8 rounded-full bg-slate-50 hover:bg-slate-100 flex items-center justify-center text-slate-600 transition-colors">\
+                            <i class="fa-solid fa-gear text-sm text-slate-600"></i>\
+                        </button>\
+                    </div>\
+\
+                    <!-- \uc0\u20010 \u20154 \u21517 \u29255  -->\
+                    <div class="flex items-start gap-4 mb-6">\
+                        <!-- \uc0\u22836 \u20687  (\u21487 \u28857 \u32534 \u36753 ) -->\
+                        <div class="relative group cursor-pointer" onclick="openEditProfileModal()">\
+                            <img id="my-avatar" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop" alt="\uc0\u25105 \u30340 \u22836 \u20687 " class="w-16 h-16 rounded-2xl object-cover ring-2 ring-[#8A31EB] ring-offset-2">\
+                            <div class="absolute inset-0 bg-black/30 rounded-2xl flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">\
+                                <i class="fa-solid fa-pen text-white text-[10px]"></i>\
+                            </div>\
+                        </div>\
+\
+                        <!-- \uc0\u20010 \u20154 \u26165 \u31216 \u12289 \u31614 \u21517 \u12289 \u32534 \u36753 \u20837 \u21475  -->\
+                        <div class="flex-1">\
+                            <div class="flex items-center justify-between">\
+                                <h3 id="my-name" class="text-base font-bold text-slate-800">\uc0\u27426 \u20048 \u30340 \u30058 \u33540 </h3>\
+                                <button onclick="openEditProfileModal()" class="text-[9px] font-bold text-[#8A31EB] border border-[#8A31EB] px-2.5 py-1 rounded-lg hover:bg-[#8A31EB]/5 transition-all">\uc0\u32534 \u36753 \u36164 \u26009 </button>\
+                            </div>\
+                            <p id="my-bio" class="text-[11px] text-slate-400 mt-1 leading-relaxed">\uc0\u36305 \u27493 \u32456 \u32467 \u32773  / 100\u21345 \u36335 \u37324 \u19981 \u22949 \u21327 \u26143 \u20154 \u12290 \u22362 \u25345 \u27599 \u27425 \u22810 \u36305 \u19968 \u31859 \u65281 </p>\
+                        </div>\
+                    </div>\
+\
+                    <!-- \uc0\u20851 \u27880 \u31881 \u19997 \u25968 \u25454 \u25490 \u29256  (\u21345 \u29255 \u24418 \u24577 ) -->\
+                    <div class="grid grid-cols-4 gap-2 mb-6 bg-slate-50/50 p-2.5 rounded-2xl border border-slate-100">\
+                        <div class="text-center py-1">\
+                            <p class="text-sm font-bold text-slate-800">128</p>\
+                            <p class="text-[9px] text-slate-400 mt-0.5">\uc0\u20851 \u27880 </p>\
+                        </div>\
+                        <div class="text-center py-1">\
+                            <p class="text-sm font-bold text-slate-800">4.2K</p>\
+                            <p class="text-[9px] text-slate-400 mt-0.5">\uc0\u31881 \u19997 </p>\
+                        </div>\
+                        <div class="text-center py-1">\
+                            <p class="text-sm font-bold text-slate-800">15.8K</p>\
+                            <p class="text-[9px] text-slate-400 mt-0.5">\uc0\u33719 \u36190 </p>\
+                        </div>\
+                        <div class="text-center py-1">\
+                            <p class="text-sm font-bold text-slate-800">89</p>\
+                            <p class="text-[9px] text-slate-400 mt-0.5">\uc0\u25910 \u34255 \u22841 </p>\
+                        </div>\
+                    </div>\
+\
+                    <!-- \uc0\u26497 \u23500 \u35774 \u35745 \u24863 \u30340 \u20010 \u20154 \u36816 \u21160 \u25968 \u25454 \u32479 \u35745  (\u36816 \u21160 \u26102 \u31354 \u33329 ) -->\
+                    <div class="mb-6">\
+                        <h4 class="text-xs font-bold text-slate-800 mb-3 flex items-center gap-1">\
+                            <i class="fa-solid fa-chart-line text-[#8A31EB]"></i> \uc0\u20010 \u20154 \u36816 \u21160 \u25968 \u25454 \
+                        </h4>\
+                        <div class="grid grid-cols-2 gap-3">\
+                            <div class="bg-gradient-to-br from-indigo-50 to-white border border-indigo-100 p-3.5 rounded-2xl">\
+                                <span class="text-[9px] text-slate-400 font-medium block">\uc0\u26412 \u26376 \u27963 \u36291 \u22825 \u25968 </span>\
+                                <div class="flex items-baseline gap-1 mt-1">\
+                                    <span class="text-lg font-black text-slate-800">18</span>\
+                                    <span class="text-[9px] text-slate-500">\uc0\u22825 </span>\
+                                </div>\
+                                <div class="w-full bg-slate-200 h-1 rounded-full mt-3 overflow-hidden">\
+                                    <div class="bg-gradient-brand h-full w-[60%] rounded-full"></div>\
+                                </div>\
+                            </div>\
+\
+                            <div class="bg-gradient-to-br from-rose-50 to-white border border-rose-100 p-3.5 rounded-2xl">\
+                                <span class="text-[9px] text-slate-400 font-medium block">\uc0\u32047 \u35745 \u28040 \u32791 \u21345 \u36335 \u37324 </span>\
+                                <div class="flex items-baseline gap-1 mt-1">\
+                                    <span class="text-lg font-black text-slate-800">8,450</span>\
+                                    <span class="text-[9px] text-slate-500">Kcal</span>\
+                                </div>\
+                                <div class="w-full bg-slate-200 h-1 rounded-full mt-3 overflow-hidden">\
+                                    <div class="bg-gradient-brand h-full w-[80%] rounded-full"></div>\
+                                </div>\
+                            </div>\
+                        </div>\
+                    </div>\
+\
+                    <!-- \uc0\u25105 \u30340 \u39278 \u39135  (\u29305 \u33394 \u21345 \u29255 ) -->\
+                    <div class="mb-6">\
+                        <div class="flex justify-between items-center mb-3">\
+                            <h4 class="text-xs font-bold text-slate-800 flex items-center gap-1">\
+                                <i class="fa-solid fa-lemon text-amber-500"></i> \uc0\u20170 \u26085 \u32511 \u33394 \u39278 \u39135 \
+                            </h4>\
+                            <span class="text-[10px] text-[#8A31EB] font-bold">\uc0\u26356 \u26032 \u37197 \u39184  <i class="fa-solid fa-angle-right text-[8px]"></i></span>\
+                        </div>\
+                        <div class="bg-white border border-slate-100 card-shadow rounded-2xl p-4 flex items-center gap-4">\
+                            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=200&auto=format&fit=crop" alt="\uc0\u36731 \u39135 \u27801 \u25289 " class="w-14 h-14 rounded-xl object-cover">\
+                            <div class="flex-1">\
+                                <div class="flex justify-between items-center">\
+                                    <h5 class="text-xs font-bold text-slate-800">\uc0\u29275 \u27833 \u26524 \u40481 \u33016 \u32905 \u33021 \u37327 \u39184 </h5>\
+                                    <span class="text-[9px] font-bold text-emerald-500 bg-emerald-50 px-2 py-0.5 rounded-full">\uc0\u36731 \u33026 </span>\
+                                </div>\
+                                <p class="text-[10px] text-slate-400 mt-1">\uc0\u30899 \u27700  35g \'95 \u34507 \u30333 \u36136  42g \'95 \u28909 \u37327  420Kcal</p>\
+                                <!-- \uc0\u20132 \u20114 \u36873 \u25321 \u25353 \u38062  -->\
+                                <div class="flex items-center justify-between mt-2 pt-2 border-t border-slate-50">\
+                                    <span class="text-[9px] text-slate-400">\uc0\u39278 \u39135 \u29366 \u24577 \u65306 \u24050 \u36798 \u25104 </span>\
+                                    <i class="fa-solid fa-circle-check text-emerald-500 text-xs"></i>\
+                                </div>\
+                            </div>\
+                        </div>\
+                    </div>\
+                </div>\
+\
+\
+                <!-- ================= \uc0\u32479 \u19968 \u24213 \u37096 \u23548 \u33322 \u26639  ================= -->\
+                <div class="absolute bottom-0 inset-x-0 h-16 bg-white/75 backdrop-blur-xl border-t border-slate-100 flex justify-around items-center px-4 z-40">\
+                    <!-- Tab 1: \uc0\u39318 \u39029  -->\
+                    <button onclick="switchTab('home')" id="tab-home" class="flex flex-col items-center justify-center gap-1 py-1 w-12 text-slate-400 transition-all duration-300">\
+                        <div class="w-5 h-5 flex items-center justify-center">\
+                            <i class="fa-solid fa-compass text-lg"></i>\
+                        </div>\
+                        <span class="text-[9px] font-medium">\uc0\u39318 \u39029 </span>\
+                    </button>\
+\
+                    <!-- Tab 2: \uc0\u21457 \u29616  -->\
+                    <button onclick="switchTab('discover')" id="tab-discover" class="flex flex-col items-center justify-center gap-1 py-1 w-12 text-slate-400 transition-all duration-300">\
+                        <div class="w-5 h-5 flex items-center justify-center">\
+                            <i class="fa-solid fa-dumbbell text-lg"></i>\
+                        </div>\
+                        <span class="text-[9px] font-medium">\uc0\u21457 \u29616 </span>\
+                    </button>\
+\
+                    <!-- Tab 3: \uc0\u20998 \u20139  (Feed) -->\
+                    <button onclick="switchTab('share')" id="tab-share" class="flex flex-col items-center justify-center gap-1 py-1 w-12 text-slate-400 transition-all duration-300">\
+                        <div class="w-5 h-5 flex items-center justify-center">\
+                            <i class="fa-solid fa-heart-pulse text-lg"></i>\
+                        </div>\
+                        <span class="text-[9px] font-medium">\uc0\u20998 \u20139 </span>\
+                    </button>\
+\
+                    <!-- Tab 4: \uc0\u25105 \u30340  -->\
+                    <button onclick="switchTab('me')" id="tab-me" class="flex flex-col items-center justify-center gap-1 py-1 w-12 text-slate-800 transition-all duration-300 transform">\
+                        <div class="w-5 h-5 flex items-center justify-center">\
+                            <i class="fa-solid fa-user text-lg text-gradient"></i>\
+                        </div>\
+                        <span class="text-[9px] font-bold">\uc0\u25105 \u30340 </span>\
+                    </button>\
+                </div>\
+\
+\
+                <!-- ================= \uc0\u32534 \u36753 \u20010 \u20154 \u36164 \u26009  \u24377 \u20986 \u27169 \u24577 \u26694  ================= -->\
+                <div id="modal-edit-profile" class="hidden absolute inset-0 bg-black/60 z-50 flex items-end justify-center transition-opacity duration-300">\
+                    <div class="w-full bg-white rounded-t-[32px] p-6 pb-10 space-y-5 animate-slide-up transform translate-y-0 transition-transform">\
+                        <!-- \uc0\u39030 \u23618 \u25289 \u25163  -->\
+                        <div class="w-12 h-1 bg-slate-200 rounded-full mx-auto mb-2"></div>\
+                        <div class="flex justify-between items-center">\
+                            <h3 class="text-sm font-bold text-slate-800">\uc0\u32534 \u36753 \u26143 \u21465 \u21517 \u29255 </h3>\
+                            <button onclick="closeEditProfileModal()" class="w-6 h-6 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 hover:text-slate-600">\
+                                <i class="fa-solid fa-xmark text-[10px]"></i>\
+                            </button>\
+                        </div>\
+\
+                        <!-- \uc0\u34920 \u21333 \u36755 \u20837  -->\
+                        <div class="space-y-4 text-xs">\
+                            <div>\
+                                <label class="block text-slate-500 font-medium mb-1.5">\uc0\u20462 \u25913 \u26165 \u31216 </label>\
+                                <input id="input-name" type="text" value="\uc0\u27426 \u20048 \u30340 \u30058 \u33540 " class="w-full bg-slate-50 border border-slate-100 rounded-xl px-3 py-2.5 text-slate-800 focus:outline-none focus:border-brand-start">\
+                            </div>\
+                            <div>\
+                                <label class="block text-slate-500 font-medium mb-1.5">\uc0\u26356 \u25913 \u31614 \u21517 </label>\
+                                <textarea id="input-bio" rows="2" class="w-full bg-slate-50 border border-slate-100 rounded-xl px-3 py-2 text-slate-800 focus:outline-none focus:border-brand-start">\uc0\u36305 \u27493 \u32456 \u32467 \u32773  / 100\u21345 \u36335 \u37324 \u19981 \u22949 \u21327 \u26143 \u20154 \u12290 \u22362 \u25345 \u27599 \u27425 \u22810 \u36305 \u19968 \u31859 \u65281 </textarea>\
+                            </div>\
+                            <div>\
+                                <label class="block text-slate-500 font-medium mb-1.5">\uc0\u22836 \u20687 \u38142 \u25509 </label>\
+                                <input id="input-avatar" type="text" value="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop" class="w-full bg-slate-50 border border-slate-100 rounded-xl px-3 py-2.5 text-slate-800 focus:outline-none focus:border-brand-start text-[10px]">\
+                            </div>\
+                        </div>\
+\
+                        <!-- \uc0\u25353 \u38062  -->\
+                        <div class="flex gap-3">\
+                            <button onclick="closeEditProfileModal()" class="flex-1 bg-slate-50 hover:bg-slate-100 py-3 rounded-xl text-xs font-bold text-slate-500 transition-colors">\uc0\u21462 \u28040 </button>\
+                            <button onclick="saveEditProfile()" class="flex-1 bg-gradient-brand py-3 rounded-xl text-xs font-bold text-white shadow-md hover:opacity-95 transition-all">\uc0\u20445 \u23384 \u26356 \u25913 </button>\
+                        </div>\
+                    </div>\
+                </div>\
+\
+\
+                <!-- ================= \uc0\u35774 \u32622  \u24377 \u20986 \u27169 \u24577 \u26694  ================= -->\
+                <div id="modal-settings" class="hidden absolute inset-0 bg-black/60 z-50 flex items-center justify-center p-6">\
+                    <div class="w-full bg-white rounded-3xl p-5 space-y-4">\
+                        <div class="flex justify-between items-center">\
+                            <h3 class="text-xs font-bold text-slate-800 uppercase tracking-widest">\uc0\u31995 \u32479 \u35774 \u32622 </h3>\
+                            <button onclick="toggleSettingsModal(false)" class="text-slate-400 hover:text-slate-600">\
+                                <i class="fa-solid fa-xmark text-xs"></i>\
+                            </button>\
+                        </div>\
+                        <div class="space-y-1.5 text-xs text-slate-600">\
+                            <div class="flex justify-between items-center p-2.5 rounded-lg hover:bg-slate-50 cursor-pointer">\
+                                <span>\uc0\u25512 \u36865 \u36890 \u30693 </span>\
+                                <i class="fa-solid fa-toggle-on text-[#8A31EB] text-lg"></i>\
+                            </div>\
+                            <div class="flex justify-between items-center p-2.5 rounded-lg hover:bg-slate-50 cursor-pointer">\
+                                <span>\uc0\u34013 \u29273 \u35774 \u22791 \u21516 \u27493 </span>\
+                                <span class="text-[10px] text-emerald-500 font-semibold">\uc0\u24050 \u36830 \u25509  Apple Watch</span>\
+                            </div>\
+                            <div class="flex justify-between items-center p-2.5 rounded-lg hover:bg-slate-50 cursor-pointer">\
+                                <span>\uc0\u31163 \u32447 \u38899 \u20048 \u21253 </span>\
+                                <span class="text-[10px] text-slate-400">\uc0\u24050 \u32531 \u23384  1.2 GB</span>\
+                            </div>\
+                            <div class="flex justify-between items-center p-2.5 rounded-lg hover:bg-slate-50 cursor-pointer text-rose-500">\
+                                <span>\uc0\u36864 \u20986 \u30331 \u24405 </span>\
+                                <i class="fa-solid fa-arrow-right-from-bracket"></i>\
+                            </div>\
+                        </div>\
+                    </div>\
+                </div>\
+\
+                <!-- \uc0\u26497 \u31616 \u20840 \u23616 \u36731 \u37327 \u36890 \u30693 \u32452 \u20214  -->\
+                <div id="toast-notif" class="absolute top-12 left-1/2 -translate-x-1/2 bg-slate-900/90 backdrop-blur-md text-white text-[10px] px-3 py-1.5 rounded-full z-50 opacity-0 pointer-events-none transition-all duration-300 flex items-center gap-1.5 shadow-md">\
+                    <i class="fa-solid fa-circle-check text-emerald-400"></i>\
+                    <span id="toast-text">\uc0\u25805 \u20316 \u24050 \u20445 \u23384 </span>\
+                </div>\
+\
+            </div>\
+        </div>\
+    </div>\
+\
+    <!-- \uc0\u21407 \u22411 \u24213 \u23618 \u20132 \u20114  JavaScript -->\
+    <script>\
+        // \uc0\u21160 \u24577 \u26102 \u38047 \
+        function updateClock() \{\
+            const now = new Date();\
+            const hrs = String(now.getHours()).padStart(2, '0');\
+            const mins = String(now.getMinutes()).padStart(2, '0');\
+            const clockEl = document.getElementById('live-clock');\
+            if(clockEl) clockEl.innerText = `$\{hrs\}:$\{mins\}`;\
+        \}\
+        setInterval(updateClock, 1000);\
+        updateClock();\
+\
+        // \uc0\u39029 \u38754 \u20999 \u25442 \u26680 \u24515 \u26426 \u21046 \
+        function switchTab(targetPage) \{\
+            const pages = ['home', 'discover', 'share', 'me'];\
+            pages.forEach(p => \{\
+                const pageEl = document.getElementById(`page-$\{p\}`);\
+                const tabEl = document.getElementById(`tab-$\{p\}`);\
+                \
+                if (p === targetPage) \{\
+                    pageEl.classList.remove('hidden');\
+                    // \uc0\u28608 \u27963 \u24577  Tab \u25928 \u26524 \
+                    tabEl.classList.add('text-slate-800');\
+                    tabEl.classList.remove('text-slate-400');\
+                    tabEl.querySelector('i').classList.add('text-gradient');\
+                    tabEl.querySelector('span').classList.add('font-bold');\
+                    tabEl.querySelector('span').classList.remove('font-medium');\
+                \} else \{\
+                    pageEl.classList.add('hidden');\
+                    // \uc0\u38750 \u28608 \u27963 \u24577  Tab \u25928 \u26524 \
+                    tabEl.classList.remove('text-slate-800');\
+                    tabEl.classList.add('text-slate-400');\
+                    tabEl.querySelector('i').classList.remove('text-gradient');\
+                    tabEl.querySelector('span').classList.remove('font-bold');\
+                    tabEl.querySelector('span').classList.add('font-medium');\
+                \}\
+            \});\
+        \}\
+\
+        // \uc0\u21457 \u29616 \u39029 \u38754 \u27178 \u21521  Tab \u31579 \u36873 \u19982 \u25968 \u25454 \u20999 \u25442 \
+        const discoverData = \{\
+            'walk': \{\
+                title: '\uc0\u26085 \u33853 \u29615 \u23665 \u28459 \u27493 \u35745 \u21010 ',\
+                level: '\uc0\u9733 \u9733 \u9734 \u9734 \u9734 ',\
+                time: '45 \uc0\u20998 \u38047 ',\
+                calories: '280 Kcal',\
+                img: 'https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?q=80&w=800&auto=format&fit=crop'\
+            \},\
+            'rope': \{\
+                title: '\uc0\u29123 \u33026 \u26292 \u27735 \u36339 \u32499 \u20914 \u21050 ',\
+                level: '\uc0\u9733 \u9733 \u9733 \u9733 \u9734 ',\
+                time: '20 \uc0\u20998 \u38047 ',\
+                calories: '350 Kcal',\
+                img: 'https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?q=80&w=600&auto=format&fit=crop'\
+            \},\
+            'indoor-ride': \{\
+                title: '\uc0\u36229 \u24863 \u23448 \u21160 \u24863 \u21333 \u36710 \u65306 \u38675 \u34425 \u37325 \u20302 \u38899 ',\
+                level: '\uc0\u9733 \u9733 \u9733 \u9734 \u9734 ',\
+                time: '35 \uc0\u20998 \u38047 ',\
+                calories: '400 Kcal',\
+                img: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=600&auto=format&fit=crop'\
+            \},\
+            'outdoor-ride': \{\
+                title: '\uc0\u30772 \u39118 \u36861 \u36880 \u65306 \u28392 \u28023 \u27839 \u32447 \u30142 \u39536 ',\
+                level: '\uc0\u9733 \u9733 \u9733 \u9733 \u9733 ',\
+                time: '60 \uc0\u20998 \u38047 ',\
+                calories: '650 Kcal',\
+                img: 'https://images.unsplash.com/photo-1485965120184-e220f721d03e?q=80&w=600&auto=format&fit=crop'\
+            \}\
+        \};\
+\
+        function switchDiscoverTab(tabKey) \{\
+            // \uc0\u33719 \u21462 \u25152 \u26377 \u21457 \u29616 \u39029 \u23376 \u23548 \u33322 \
+            const tabIds = ['nav-walk', 'nav-rope', 'nav-indoor-ride', 'nav-outdoor-ride'];\
+            tabIds.forEach(id => \{\
+                const btn = document.getElementById(id);\
+                if (id === `nav-$\{tabKey\}`) \{\
+                    btn.className = "flex-shrink-0 flex items-center gap-2 px-3.5 py-2.5 rounded-xl bg-gradient-brand text-white shadow-md transition-all duration-300";\
+                \} else \{\
+                    btn.className = "flex-shrink-0 flex items-center gap-2 px-3.5 py-2.5 rounded-xl bg-slate-50 text-slate-500 hover:bg-slate-100 transition-all duration-300";\
+                \}\
+            \});\
+\
+            // \uc0\u26356 \u25442 \u26680 \u24515 \u24040 \u24133 \u21345 \u29255 \u20869 \u23481 \
+            const data = discoverData[tabKey];\
+            if (data) \{\
+                document.getElementById('discover-title').innerText = data.title;\
+                document.getElementById('discover-level').innerText = data.level;\
+                document.getElementById('discover-time').innerText = data.time;\
+                document.getElementById('discover-calories').innerText = data.calories;\
+                document.getElementById('discover-img').src = data.img;\
+            \}\
+        \}\
+\
+        // \uc0\u25171 \u24320 /\u20851 \u38381 \u32534 \u36753 \u36164 \u26009 \u24377 \u31383 \
+        function openEditProfileModal() \{\
+            const modal = document.getElementById('modal-edit-profile');\
+            modal.classList.remove('hidden');\
+        \}\
+\
+        // \uc0\u20851 \u38381 \u32534 \u36753 \u36164 \u26009 \u24377 \u31383 \
+        function closeEditProfileModal() \{\
+            const modal = document.getElementById('modal-edit-profile');\
+            modal.classList.add('hidden');\
+        \}\
+\
+        // \uc0\u20445 \u23384 \u32534 \u36753 \u21518 \u30340 \u36164 \u26009 \
+        function saveEditProfile() \{\
+            const newName = document.getElementById('input-name').value;\
+            const newBio = document.getElementById('input-bio').value;\
+            const newAvatar = document.getElementById('input-avatar').value;\
+\
+            document.getElementById('my-name').innerText = newName;\
+            document.getElementById('my-bio').innerText = newBio;\
+            document.getElementById('my-avatar').src = newAvatar;\
+\
+            closeEditProfileModal();\
+            showToast('\uc0\u21517 \u29255 \u26356 \u26032 \u25104 \u21151  \u10024 ');\
+        \}\
+\
+        // \uc0\u35774 \u32622 \u27169 \u24577 \u26694 \u20999 \u25442 \
+        function toggleSettingsModal(show) \{\
+            const modal = document.getElementById('modal-settings');\
+            if (show) \{\
+                modal.classList.remove('hidden');\
+            \} else \{\
+                modal.classList.add('hidden');\
+            \}\
+        \}\
+\
+        // \uc0\u36731 \u37327 \u21270 \u36890 \u30693 \u26694 \
+        function showToast(message) \{\
+            const toast = document.getElementById('toast-notif');\
+            const text = document.getElementById('toast-text');\
+            text.innerText = message;\
+            toast.classList.remove('opacity-0', 'pointer-events-none');\
+            toast.classList.add('opacity-100');\
+            setTimeout(() => \{\
+                toast.classList.remove('opacity-100');\
+                toast.classList.add('opacity-0', 'pointer-events-none');\
+            \}, 2000);\
+        \}\
+\
+        // \uc0\u24038 \u20391 \u35774 \u35745 \u25991 \u26723 Tab\u20999 \u25442 \
+        function switchDocTab(type) \{\
+            const btnPrd = document.getElementById('btn-doc-prd');\
+            const btnUi = document.getElementById('btn-doc-ui');\
+            const docPrd = document.getElementById('doc-prd');\
+            const docUi = document.getElementById('doc-ui');\
+\
+            if (type === 'prd') \{\
+                btnPrd.className = "pb-3 text-slate-800 border-b-2 border-brand-start font-semibold";\
+                btnUi.className = "pb-3 text-slate-400 hover:text-slate-600 font-medium";\
+                docPrd.classList.remove('hidden');\
+                docUi.classList.add('hidden');\
+            \} else \{\
+                btnUi.className = "pb-3 text-slate-800 border-b-2 border-brand-start font-semibold";\
+                btnPrd.className = "pb-3 text-slate-400 hover:text-slate-600 font-medium";\
+                docUi.classList.remove('hidden');\
+                docPrd.classList.add('hidden');\
+            \}\
+        \}\
+\
+        // \uc0\u21452 \u20987 \u19982 \u36731 \u28857 \u25910 \u34255 \u22841 \u20132 \u20114  (\u39318 \u39029 \u28689 \u24067 \u27969 \u24515 \u24418 )\
+        function toggleCardCollect(button) \{\
+            const icon = button.querySelector('i');\
+            if (icon.classList.contains('text-rose-500')) \{\
+                icon.classList.remove('text-rose-500');\
+                icon.classList.add('text-slate-400');\
+                showToast('\uc0\u24050 \u21462 \u28040 \u25910 \u34255 ');\
+            \} else \{\
+                icon.classList.add('text-rose-500');\
+                icon.classList.remove('text-slate-400');\
+                showToast('\uc0\u24050 \u20445 \u23384 \u33267 \u26143 \u21465 \u35745 \u21010 \u22841  \u10084 \u65039 ');\
+            \}\
+        \}\
+\
+        // \uc0\u31038 \u21306 Feed\u27969 \u20114 \u21160 \u65306 \u28857 \u36190 \
+        function toggleLike(button) \{\
+            const icon = button.querySelector('i');\
+            const text = button.querySelector('span');\
+            let count = parseInt(text.innerText);\
+\
+            if (icon.classList.contains('fa-regular')) \{\
+                icon.className = "fa-solid fa-heart text-rose-500 animate-bounce";\
+                text.innerText = count + 1;\
+                text.className = "text-[11px] font-bold text-rose-500";\
+            \} else \{\
+                icon.className = "fa-regular fa-heart text-sm";\
+                text.innerText = count - 1;\
+                text.className = "text-[11px] font-semibold text-slate-500";\
+            \}\
+        \}\
+\
+        // \uc0\u31038 \u21306 Feed\u27969 \u20114 \u21160 \u65306 \u25910 \u34255 \
+        function toggleCollect(button) \{\
+            const icon = button.querySelector('i');\
+            if (icon.classList.contains('fa-regular')) \{\
+                icon.className = "fa-solid fa-star text-amber-400 animate-spin-fast";\
+                showToast('\uc0\u25991 \u31456 \u24050 \u25910 \u34255 ');\
+            \} else \{\
+                icon.className = "fa-regular fa-star text-sm";\
+                showToast('\uc0\u21462 \u28040 \u25910 \u34255 ');\
+            \}\
+        \}\
+\
+        // \uc0\u21021 \u22987 \u21270 \u65306 \u40664 \u35748 \u26174 \u31034 \'93\u25105 \u30340 \'94\u39029 \u38754 \u65292 \u26041 \u20415 \u30452 \u25509 \u23637 \u31034 \u32534 \u36753 \u20010 \u20154 \u21517 \u29255 \u21644 \u35774 \u32622 \u20132 \u20114 \
+        window.onload = function() \{\
+            switchTab('me');\
+        \}\
+    </script>\
+</body>\
+</html>}
