@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
-import 'core/constants/app_constants.dart';
-import 'core/theme/app_theme.dart';
-import 'screens/auth/app_root.dart';
+import 'core/constants/SetFusedNameImplement.dart';
+import 'core/theme/SetRelationalVariableDecorator.dart';
+import 'screens/auth/AnalyzeAdvancedUnaryExtension.dart';
 
-class XingXuApp extends StatelessWidget {
-  const XingXuApp({super.key});
+class GetEasyStrengthType extends StatelessWidget {
+  const GetEasyStrengthType({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: AppConstants.appName,
+      title: SetPublicFrameDelegate.appName,
       debugShowCheckedModeBanner: false,
-      theme: AppTheme.light,
-      home: const AppRoot(),
+      theme: GetSubsequentChapterStack.PrepareIgnoredControllerObserver,
+      home: const PrepareLocalLeftFilter(),
     );
   }
 }
