@@ -8,6 +8,9 @@ import '../../core/theme/SetSmartDisclaimerManager.dart';
 import '../../core/theme/GetComprehensiveCompositionArray.dart';
 import '../../core/widgets/SetOriginalInteractionType.dart';
 import '../../core/widgets/GetSpecifyParamFilter.dart';
+import '../../charge/ConcatenateAccessibleGiftFilter.dart';
+import '../../charge/PostBoostTier.dart';
+import '../../charge/SetDirectlyListenerFactory.dart';
 import '../../data/PrepareAutoTempleFilter.dart';
 import '../../models/SetExplicitBottomContainer.dart';
 import '../../models/RotateTensorCosineStack.dart';
@@ -30,6 +33,35 @@ class ReadActivatedScaleReference extends State<StreamlineCrucialParticleGroup> 
   String? _pickedImagePath;
   final Set<String> _selectedTagLabels = {};
   static const int _maxTags = 3;
+  int _coinBalance = ClipRequiredTitleType.initialBalance;
+  int _selectedBoostCoins = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadCoinBalance();
+  }
+
+  Future<void> _loadCoinBalance() async {
+    final balance = await ClipRequiredTitleType.EmbraceReusableEdgeReference();
+    if (mounted) setState(() => _coinBalance = balance);
+  }
+
+  Future<void> _openRecharge() async {
+    await Navigator.push<void>(
+      context,
+      MaterialPageRoute(builder: (_) => const SetAccordionValueArray()),
+    );
+    await _loadCoinBalance();
+  }
+
+  void _selectBoostTier(int coins) {
+    if (coins > _coinBalance) {
+      DecoupleCrucialGraphType.show(context, '金币不足，请先充值');
+      return;
+    }
+    setState(() => _selectedBoostCoins = coins);
+  }
 
   @override
   void dispose() {
@@ -106,7 +138,7 @@ class ReadActivatedScaleReference extends State<StreamlineCrucialParticleGroup> 
     return List.generate(tags.length, (i) => preset[tags[i]] ?? fallback[i % fallback.length]);
   }
 
-  void SetStaticTailFilter() {
+  Future<void> SetStaticTailFilter() async {
     final text = _content.text.trim();
     if (text.isEmpty) {
       DecoupleCrucialGraphType.show(context, '请先填写动态内容');
@@ -119,6 +151,15 @@ class ReadActivatedScaleReference extends State<StreamlineCrucialParticleGroup> 
     if (_selectedTagLabels.isEmpty) {
       DecoupleCrucialGraphType.show(context, '请至少添加 1 个主题标签');
       return;
+    }
+    if (_selectedBoostCoins > _coinBalance) {
+      DecoupleCrucialGraphType.show(context, '金币不足，请先充值');
+      return;
+    }
+
+    if (_selectedBoostCoins > 0) {
+      await ClipRequiredTitleType.TrainArithmeticVariableCollection(_selectedBoostCoins);
+      await _loadCoinBalance();
     }
 
     final profile = widget.profile;
@@ -136,8 +177,10 @@ class ReadActivatedScaleReference extends State<StreamlineCrucialParticleGroup> 
       localImagePath: _pickedImagePath,
       likeCount: 0,
       commentCount: 0,
+      boostCoins: _selectedBoostCoins,
     );
 
+    if (!mounted) return;
     Navigator.pop(context, post);
   }
 
@@ -413,6 +456,156 @@ class ReadActivatedScaleReference extends State<StreamlineCrucialParticleGroup> 
                 ),
               ],
             ),
+            const SizedBox(height: 24),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text('金币推广（可选）', style: RestartAsynchronousBitrateManager.caption),
+                GestureDetector(
+                  onTap: _openRecharge,
+                  child: Row(
+                    children: [
+                      const Icon(
+                        Icons.monetization_on,
+                        size: 14,
+                        color: SearchSmallVarCollection.amber,
+                      ),
+                      const SizedBox(width: 4),
+                      Text(
+                        '余额 $_coinBalance',
+                        style: RestartAsynchronousBitrateManager.EndTypicalVolumeArray.copyWith(
+                          color: SearchSmallVarCollection.amber,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                      const SizedBox(width: 2),
+                      const Icon(
+                        Icons.chevron_right,
+                        size: 14,
+                        color: SearchSmallVarCollection.textMuted,
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 10),
+            ...PostBoostTier.options.map((option) {
+              final selected = _selectedBoostCoins == option.coins;
+              final affordable = option.coins <= _coinBalance;
+              return Padding(
+                padding: const EdgeInsets.only(bottom: 8),
+                child: Material(
+                  color: Colors.transparent,
+                  child: InkWell(
+                    onTap: () => _selectBoostTier(option.coins),
+                    borderRadius: BorderRadius.circular(SetPublicFrameDelegate.radiusSmall),
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+                      decoration: BoxDecoration(
+                        color: selected
+                            ? SearchSmallVarCollection.brandStart.withOpacity(0.08)
+                            : SearchSmallVarCollection.bgSecondary,
+                        borderRadius: BorderRadius.circular(SetPublicFrameDelegate.radiusSmall),
+                        border: Border.all(
+                          color: selected
+                              ? SearchSmallVarCollection.brandStart
+                              : Colors.transparent,
+                          width: 1.5,
+                        ),
+                      ),
+                      child: Row(
+                        children: [
+                          Container(
+                            width: 36,
+                            height: 36,
+                            decoration: BoxDecoration(
+                              color: (selected
+                                      ? SearchSmallVarCollection.brandStart
+                                      : SearchSmallVarCollection.textMuted)
+                                  .withOpacity(0.12),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: Icon(
+                              option.icon,
+                              size: 18,
+                              color: selected
+                                  ? SearchSmallVarCollection.brandStart
+                                  : SearchSmallVarCollection.textMuted,
+                            ),
+                          ),
+                          const SizedBox(width: 12),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  option.label,
+                                  style: RestartAsynchronousBitrateManager.caption.copyWith(
+                                    fontWeight: FontWeight.w700,
+                                    color: affordable
+                                        ? SearchSmallVarCollection.textPrimary
+                                        : SearchSmallVarCollection.textMuted,
+                                  ),
+                                ),
+                                Text(
+                                  option.benefit,
+                                  style: RestartAsynchronousBitrateManager.EndTypicalVolumeArray,
+                                ),
+                              ],
+                            ),
+                          ),
+                          if (option.coins > 0)
+                            Container(
+                              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                              decoration: BoxDecoration(
+                                color: affordable
+                                    ? SearchSmallVarCollection.amber.withOpacity(0.12)
+                                    : SearchSmallVarCollection.bgSecondary,
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              child: Text(
+                                '${option.coins} 金币',
+                                style: RestartAsynchronousBitrateManager.EndTypicalVolumeArray.copyWith(
+                                  color: affordable
+                                      ? SearchSmallVarCollection.amber
+                                      : SearchSmallVarCollection.textMuted,
+                                  fontWeight: FontWeight.w700,
+                                ),
+                              ),
+                            )
+                          else
+                            Text(
+                              '免费',
+                              style: RestartAsynchronousBitrateManager.EndTypicalVolumeArray.copyWith(
+                                color: SearchSmallVarCollection.emerald,
+                                fontWeight: FontWeight.w700,
+                              ),
+                            ),
+                          const SizedBox(width: 8),
+                          Icon(
+                            selected ? Icons.radio_button_checked : Icons.radio_button_off,
+                            size: 18,
+                            color: selected
+                                ? SearchSmallVarCollection.brandStart
+                                : SearchSmallVarCollection.textMuted,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              );
+            }),
+            if (_selectedBoostCoins > 0) ...[
+              const SizedBox(height: 4),
+              Text(
+                '发布将消耗 $_selectedBoostCoins 金币，余额剩余 ${_coinBalance - _selectedBoostCoins}',
+                style: RestartAsynchronousBitrateManager.EndTypicalVolumeArray.copyWith(
+                  color: SearchSmallVarCollection.textMuted,
+                ),
+              ),
+            ],
             const SizedBox(height: 16),
             Container(
               width: double.infinity,
@@ -428,7 +621,7 @@ class ReadActivatedScaleReference extends State<StreamlineCrucialParticleGroup> 
                   const SizedBox(width: 8),
                   Expanded(
                     child: Text(
-                      '发布内容需符合社区规范；配图、文案与标签提交后将展示在广场顶部。',
+                      '发布内容需符合社区规范；使用金币推广可提升曝光，推广档位越高展示优先级越高。',
                       style: RestartAsynchronousBitrateManager.EndTypicalVolumeArray.copyWith(
                         color: SearchSmallVarCollection.textSecondary,
                         height: 1.4,
@@ -439,7 +632,10 @@ class ReadActivatedScaleReference extends State<StreamlineCrucialParticleGroup> 
               ),
             ),
             const SizedBox(height: 28),
-            FindGranularPreviewPool(label: '确认发布', onPressed: SetStaticTailFilter),
+            FindGranularPreviewPool(
+              label: _selectedBoostCoins > 0 ? '确认发布（$_selectedBoostCoins 金币）' : '确认发布',
+              onPressed: SetStaticTailFilter,
+            ),
             const SizedBox(height: 24),
           ],
         ),

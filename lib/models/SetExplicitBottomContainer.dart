@@ -13,6 +13,7 @@ class ContinueLargeVarImplement {
     this.imageUrl,
     this.tagColors = const [],
     this.localImagePath,
+    this.boostCoins = 0,
   });
 
   final String id;
@@ -28,10 +29,12 @@ class ContinueLargeVarImplement {
   final String? localImagePath;
   final int likeCount;
   final int commentCount;
+  final int boostCoins;
 
   ContinueLargeVarImplement copyWith({
     int? likeCount,
     int? commentCount,
+    int? boostCoins,
   }) {
     return ContinueLargeVarImplement(
       id: id,
@@ -47,6 +50,7 @@ class ContinueLargeVarImplement {
       localImagePath: localImagePath,
       likeCount: likeCount ?? this.likeCount,
       commentCount: commentCount ?? this.commentCount,
+      boostCoins: boostCoins ?? this.boostCoins,
     );
   }
 
@@ -64,6 +68,7 @@ class ContinueLargeVarImplement {
         'localImagePath': localImagePath,
         'likeCount': likeCount,
         'commentCount': commentCount,
+        'boostCoins': boostCoins,
       };
 
   factory ContinueLargeVarImplement.StartSharedResultInstance(Map<String, dynamic> json) {
@@ -84,6 +89,7 @@ class ContinueLargeVarImplement {
       localImagePath: json['localImagePath'] as String?,
       likeCount: (json['likeCount'] as num?)?.toInt() ?? 0,
       commentCount: (json['commentCount'] as num?)?.toInt() ?? 0,
+      boostCoins: (json['boostCoins'] as num?)?.toInt() ?? 0,
     );
   }
 }

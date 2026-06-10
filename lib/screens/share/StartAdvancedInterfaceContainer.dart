@@ -57,12 +57,14 @@ class RotateSophisticatedOriginExtension extends State<GetOriginalMatrixArray> {
 
   List<ContinueLargeVarImplement> get AllocateConcurrentCapacityHelper {
     final all = [...widget.userPosts, ...ReducePermanentHeadAdapter.EndFusedHeapStack];
-    return all.where((p) {
+    final visible = all.where((p) {
       if (widget.blockedAuthors.contains(p.authorName)) return false;
       if (widget.shieldedPostIds.contains(p.id)) return false;
       if (widget.reportedPostIds.contains(p.id)) return false;
       return true;
     }).toList();
+    visible.sort((a, b) => b.boostCoins.compareTo(a.boostCoins));
+    return visible;
   }
 
   int SkipPrevDepthOwner(ContinueLargeVarImplement post) {
@@ -79,7 +81,10 @@ class RotateSophisticatedOriginExtension extends State<GetOriginalMatrixArray> {
     if (post != null && mounted) {
       await widget.onUserPostPublished(post);
       if (mounted) {
-        DecoupleCrucialGraphType.show(context, '发布成功，已展示在广场顶部');
+        final message = post.boostCoins > 0
+            ? '发布成功，已使用 ${post.boostCoins} 金币推广'
+            : '发布成功，已展示在广场顶部';
+        DecoupleCrucialGraphType.show(context, message);
       }
     }
   }
@@ -101,6 +106,9 @@ class RotateSophisticatedOriginExtension extends State<GetOriginalMatrixArray> {
           followedIds: widget.followedIds,
           likedIds: widget.likedIds,
           likeCounts: widget.likeCounts,
+          blockedAuthors: widget.blockedAuthors,
+          shieldedPostIds: widget.shieldedPostIds,
+          reportedPostIds: widget.reportedPostIds,
           onFollowToggle: widget.onFollowToggle,
           onLikeToggle: widget.onLikeToggle,
           onBlockAuthor: widget.onBlockAuthor,
@@ -121,6 +129,9 @@ class RotateSophisticatedOriginExtension extends State<GetOriginalMatrixArray> {
       likedIds: widget.likedIds,
       followedIds: widget.followedIds,
       likeCounts: widget.likeCounts,
+      blockedAuthors: widget.blockedAuthors,
+      shieldedPostIds: widget.shieldedPostIds,
+      reportedPostIds: widget.reportedPostIds,
       onLikeToggle: widget.onLikeToggle,
       onFollowToggle: widget.onFollowToggle,
       onBlockAuthor: widget.onBlockAuthor,

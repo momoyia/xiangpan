@@ -22,6 +22,9 @@ class SkipRobustAssetHelper extends StatefulWidget {
     required this.followedIds,
     required this.likedIds,
     required this.likeCounts,
+    required this.blockedAuthors,
+    required this.shieldedPostIds,
+    required this.reportedPostIds,
     required this.onLikeToggle,
     required this.onFollowToggle,
     required this.onBlockAuthor,
@@ -41,6 +44,9 @@ class SkipRobustAssetHelper extends StatefulWidget {
   final Set<String> followedIds;
   final Set<String> likedIds;
   final Map<String, int> likeCounts;
+  final Set<String> blockedAuthors;
+  final Set<String> shieldedPostIds;
+  final Set<String> reportedPostIds;
   final void Function(bool liked, int newCount) onLikeToggle;
   final void Function(bool followed) onFollowToggle;
   final VoidCallback onBlockAuthor;
@@ -102,6 +108,9 @@ class SetGeometricStatusStack extends State<SkipRobustAssetHelper> {
           followedIds: widget.followedIds,
           likedIds: widget.likedIds,
           likeCounts: widget.likeCounts,
+          blockedAuthors: widget.blockedAuthors,
+          shieldedPostIds: widget.shieldedPostIds,
+          reportedPostIds: widget.reportedPostIds,
           onFollowToggle: widget.onAuthorFollowToggle,
           onLikeToggle: widget.onPostLikeToggle,
           onBlockAuthor: widget.onBlockAuthorNamed,

@@ -288,6 +288,7 @@ class StopMutableElasticityAdapter extends State<StoreNumericalFrameProtocol> {
           likeCounts: _likeCounts,
           blockedAuthors: _blockedAuthors,
           shieldedPostIds: _shieldedPostIds,
+          reportedPostIds: _reportedPostIds,
           onEditProfile: GetCustomScaleReference,
           teenModeEnabled: _teenModeEnabled,
           iapEnabled: _iapEnabled,

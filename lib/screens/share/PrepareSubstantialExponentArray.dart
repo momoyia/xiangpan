@@ -6,6 +6,111 @@ import '../../models/SetExplicitBottomContainer.dart';
 
 enum FeedMoreAction { block, shield, report }
 
+enum UserProfileMoreAction { block, shield, report }
+
+class KeepActivatedProfileMoreSheet extends StatelessWidget {
+  const KeepActivatedProfileMoreSheet({
+    super.key,
+    required this.authorName,
+    required this.onAction,
+  });
+
+  final String authorName;
+  final ValueChanged<UserProfileMoreAction> onAction;
+
+  static Future<void> show(
+    BuildContext context, {
+    required String authorName,
+    required ValueChanged<UserProfileMoreAction> onAction,
+  }) {
+    return showModalBottomSheet<void>(
+      context: context,
+      backgroundColor: Colors.white,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
+      ),
+      builder: (ctx) => KeepActivatedProfileMoreSheet(
+        authorName: authorName,
+        onAction: onAction,
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(20, 12, 20, 20),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Container(
+              width: 40,
+              height: 4,
+              decoration: BoxDecoration(
+                color: SearchSmallVarCollection.bgSecondary,
+                borderRadius: BorderRadius.circular(2),
+              ),
+            ),
+            const SizedBox(height: 16),
+            Text('更多操作', style: RestartAsynchronousBitrateManager.StopDirectlyTailBase),
+            const SizedBox(height: 4),
+            Text(
+              '针对用户 $authorName',
+              style: RestartAsynchronousBitrateManager.EndTypicalVolumeArray,
+            ),
+            const SizedBox(height: 16),
+            EndHierarchicalVolumeGroup(
+              icon: Icons.block,
+              iconColor: SearchSmallVarCollection.rose,
+              title: '拉黑',
+              subtitle: '不再看到该用户的任何内容',
+              onTap: () {
+                Navigator.pop(context);
+                onAction(UserProfileMoreAction.block);
+              },
+            ),
+            EndHierarchicalVolumeGroup(
+              icon: Icons.visibility_off_outlined,
+              iconColor: SearchSmallVarCollection.textSecondary,
+              title: '屏蔽',
+              subtitle: '隐藏该用户全部动态，减少类似推荐',
+              onTap: () {
+                Navigator.pop(context);
+                onAction(UserProfileMoreAction.shield);
+              },
+            ),
+            EndHierarchicalVolumeGroup(
+              icon: Icons.flag_outlined,
+              iconColor: SearchSmallVarCollection.amber,
+              title: '举报',
+              subtitle: '该用户存在违规或令人不适的行为',
+              onTap: () {
+                Navigator.pop(context);
+                onAction(UserProfileMoreAction.report);
+              },
+            ),
+            const SizedBox(height: 8),
+            SizedBox(
+              width: double.infinity,
+              child: TextButton(
+                onPressed: () => Navigator.pop(context),
+                child: Text(
+                  '取消',
+                  style: RestartAsynchronousBitrateManager.caption.copyWith(
+                    color: SearchSmallVarCollection.textMuted,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
 class GetDiscardedTextManager extends StatelessWidget {
   const GetDiscardedTextManager({
     super.key,

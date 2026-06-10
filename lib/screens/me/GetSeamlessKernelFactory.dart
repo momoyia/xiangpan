@@ -23,6 +23,7 @@ class SetPublicActivityCollection extends StatelessWidget {
     required this.likeCounts,
     required this.blockedAuthors,
     required this.shieldedPostIds,
+    required this.reportedPostIds,
     required this.onEditProfile,
     required this.onTeenModeChanged,
     required this.teenModeEnabled,
@@ -46,6 +47,7 @@ class SetPublicActivityCollection extends StatelessWidget {
   final Map<String, int> likeCounts;
   final Set<String> blockedAuthors;
   final Set<String> shieldedPostIds;
+  final Set<String> reportedPostIds;
   final ValueChanged<ConcatenateResilientSineHandler> onEditProfile;
   final ValueChanged<bool> onTeenModeChanged;
   final bool teenModeEnabled;
@@ -238,6 +240,9 @@ class SetPublicActivityCollection extends StatelessWidget {
                       likedIds: likedIds,
                       followedIds: followedIds,
                       likeCounts: likeCounts,
+                      blockedAuthors: blockedAuthors,
+                      shieldedPostIds: shieldedPostIds,
+                      reportedPostIds: reportedPostIds,
                       onLikeToggle: onLikeToggle,
                       onFollowToggle: onFollowToggle,
                       onBlockAuthor: onBlockAuthor,

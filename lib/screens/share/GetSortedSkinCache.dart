@@ -11,6 +11,9 @@ class GetDenseValueHelper {
     required Set<String> likedIds,
     required Set<String> followedIds,
     required Map<String, int> likeCounts,
+    required Set<String> blockedAuthors,
+    required Set<String> shieldedPostIds,
+    required Set<String> reportedPostIds,
     required void Function(String id, bool liked, int newCount) onLikeToggle,
     required void Function(String author, bool followed) onFollowToggle,
     required void Function(String author) onBlockAuthor,
@@ -31,6 +34,9 @@ class GetDenseValueHelper {
           followedIds: followedIds,
           likedIds: likedIds,
           likeCounts: likeCounts,
+          blockedAuthors: blockedAuthors,
+          shieldedPostIds: shieldedPostIds,
+          reportedPostIds: reportedPostIds,
           onLikeToggle: (liked, newCount) {
             onLikeToggle(post.id, liked, newCount);
           },

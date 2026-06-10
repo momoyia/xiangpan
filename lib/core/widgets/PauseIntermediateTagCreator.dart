@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../charge/PostBoostTier.dart';
 import '../../data/PrepareAutoTempleFilter.dart';
 import '../constants/SetPrimaryVariablePool.dart';
 import '../../models/SetExplicitBottomContainer.dart';
@@ -147,12 +148,54 @@ class InitializeEphemeralSoundGroup extends State<FinishRetainedFrameTarget>
           ),
           SetAdvancedTernaryList(
             onTap: widget.onCardTap,
-            child: LimitRetainedBufferList(
-              assetPath: post.imageAsset,
-              networkUrl: post.imageUrl,
-              localFilePath: post.localImagePath,
-              height: 224,
-              width: double.infinity,
+            child: Stack(
+              children: [
+                LimitRetainedBufferList(
+                  assetPath: post.imageAsset,
+                  networkUrl: post.imageUrl,
+                  localFilePath: post.localImagePath,
+                  height: 224,
+                  width: double.infinity,
+                ),
+                if (post.boostCoins > 0)
+                  Positioned(
+                    top: 10,
+                    left: 10,
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                      decoration: BoxDecoration(
+                        gradient: SearchSmallVarCollection.brandGradient,
+                        borderRadius: BorderRadius.circular(20),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.15),
+                            blurRadius: 6,
+                            offset: const Offset(0, 2),
+                          ),
+                        ],
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(
+                            PostBoostTier.optionForCoins(post.boostCoins)?.icon ??
+                                Icons.rocket_launch_outlined,
+                            size: 12,
+                            color: Colors.white,
+                          ),
+                          const SizedBox(width: 4),
+                          Text(
+                            PostBoostTier.optionForCoins(post.boostCoins)?.label ?? '推广中',
+                            style: RestartAsynchronousBitrateManager.EndTypicalVolumeArray.copyWith(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+              ],
             ),
           ),
           SetAdvancedTernaryList(

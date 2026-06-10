@@ -8,6 +8,8 @@ import '../../core/widgets/SetOriginalInteractionType.dart';
 import '../../data/PrepareAutoTempleFilter.dart';
 import '../../models/SetExplicitBottomContainer.dart';
 import 'FinishSophisticatedCenterCollection.dart';
+import 'PrepareSubstantialExponentArray.dart';
+import 'RestartSynchronousSkinFactory.dart';
 
 class DiscoverUnsortedMemberHandler extends StatefulWidget {
   const DiscoverUnsortedMemberHandler({
@@ -17,6 +19,9 @@ class DiscoverUnsortedMemberHandler extends StatefulWidget {
     required this.followedIds,
     required this.likedIds,
     required this.likeCounts,
+    required this.blockedAuthors,
+    required this.shieldedPostIds,
+    required this.reportedPostIds,
     required this.onFollowToggle,
     required this.onLikeToggle,
     required this.onBlockAuthor,
@@ -29,6 +34,9 @@ class DiscoverUnsortedMemberHandler extends StatefulWidget {
   final Set<String> followedIds;
   final Set<String> likedIds;
   final Map<String, int> likeCounts;
+  final Set<String> blockedAuthors;
+  final Set<String> shieldedPostIds;
+  final Set<String> reportedPostIds;
   final void Function(String author, bool followed) onFollowToggle;
   final void Function(String id, bool liked, int newCount) onLikeToggle;
   final void Function(String author) onBlockAuthor;
@@ -48,10 +56,67 @@ class WriteFirstMonsterContainer extends State<DiscoverUnsortedMemberHandler> {
     _followed = widget.followedIds.contains(widget.authorName);
   }
 
+  List<ContinueLargeVarImplement> GetVisiblePosts() {
+    final all = ReducePermanentHeadAdapter.StoreIterativeTagDecorator(widget.authorName);
+    return all.where((p) {
+      if (widget.blockedAuthors.contains(p.authorName)) return false;
+      if (widget.shieldedPostIds.contains(p.id)) return false;
+      if (widget.reportedPostIds.contains(p.id)) return false;
+      return true;
+    }).toList();
+  }
+
   void QuantizationCustomRoleFilter() {
     setState(() => _followed = !_followed);
     widget.onFollowToggle(widget.authorName, _followed);
     DecoupleCrucialGraphType.show(context, _followed ? '关注成功' : '已取消关注');
+  }
+
+  void SetUniformNumberHandler() {
+    KeepActivatedProfileMoreSheet.show(
+      context,
+      authorName: widget.authorName,
+      onAction: (action) {
+        switch (action) {
+          case UserProfileMoreAction.block:
+            widget.onBlockAuthor(widget.authorName);
+            DecoupleCrucialGraphType.show(context, '已拉黑，将不再显示该用户内容');
+            Navigator.pop(context);
+            break;
+          case UserProfileMoreAction.shield:
+            final allPosts =
+                ReducePermanentHeadAdapter.StoreIterativeTagDecorator(widget.authorName);
+            for (final p in allPosts) {
+              widget.onShieldPost(p.id);
+            }
+            DecoupleCrucialGraphType.show(context, '已屏蔽，该用户内容已从广场移除');
+            Navigator.pop(context);
+            break;
+          case UserProfileMoreAction.report:
+            final bio = ReducePermanentHeadAdapter.EndRequiredTopicAdapter(widget.authorName);
+            Navigator.push<void>(
+              context,
+              MaterialPageRoute(
+                builder: (ctx) => RestartSynchronousUserReport(
+                  authorName: widget.authorName,
+                  authorAvatar: widget.authorAvatar,
+                  bio: bio,
+                  onSubmit: (reason, detail) {
+                    final allPosts =
+                        ReducePermanentHeadAdapter.StoreIterativeTagDecorator(widget.authorName);
+                    for (final p in allPosts) {
+                      widget.onReportPost(p.id, reason, detail);
+                    }
+                    DecoupleCrucialGraphType.show(context, '举报已提交，感谢你的反馈');
+                    Navigator.pop(context);
+                  },
+                ),
+              ),
+            );
+            break;
+        }
+      },
+    );
   }
 
   void PushDirectTextObserver(ContinueLargeVarImplement post) {
@@ -68,6 +133,9 @@ class WriteFirstMonsterContainer extends State<DiscoverUnsortedMemberHandler> {
           followedIds: widget.followedIds,
           likedIds: widget.likedIds,
           likeCounts: widget.likeCounts,
+          blockedAuthors: widget.blockedAuthors,
+          shieldedPostIds: widget.shieldedPostIds,
+          reportedPostIds: widget.reportedPostIds,
           onLikeToggle: (liked, newCount) {
             widget.onLikeToggle(post.id, liked, newCount);
           },
@@ -92,7 +160,7 @@ class WriteFirstMonsterContainer extends State<DiscoverUnsortedMemberHandler> {
 
   @override
   Widget build(BuildContext context) {
-    final posts = ReducePermanentHeadAdapter.StoreIterativeTagDecorator(widget.authorName);
+    final posts = GetVisiblePosts();
     final stats = ReducePermanentHeadAdapter.MakeAsynchronousVideoHandler(widget.authorName);
     final bio = ReducePermanentHeadAdapter.EndRequiredTopicAdapter(widget.authorName);
 
@@ -105,6 +173,12 @@ class WriteFirstMonsterContainer extends State<DiscoverUnsortedMemberHandler> {
           icon: const Icon(Icons.arrow_back_ios_new, size: 18),
           onPressed: () => Navigator.pop(context),
         ),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.more_horiz, size: 22),
+            onPressed: SetUniformNumberHandler,
+          ),
+        ],
       ),
       body: CustomScrollView(
         slivers: [
@@ -183,7 +257,10 @@ class WriteFirstMonsterContainer extends State<DiscoverUnsortedMemberHandler> {
               hasScrollBody: false,
               child: Center(
                 child: Text(
-                  '暂无动态',
+                  widget.blockedAuthors.contains(widget.authorName) ||
+                          widget.reportedPostIds.isNotEmpty
+                      ? '该用户内容已隐藏'
+                      : '暂无动态',
                   style: RestartAsynchronousBitrateManager.CreateResilientImpactTarget.copyWith(color: SearchSmallVarCollection.textMuted),
                 ),
               ),
